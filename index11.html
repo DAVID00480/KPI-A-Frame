@@ -2,56 +2,14 @@
 <html lang="en-US">
 <head>
     <title>A-Frame: KPI FEI TUKE</title>
-<!--    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>-->
     <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jujunjun110/aframe-crawling-cursor/master/dist/aframe-crawling-cursor.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script>
-    <script>
-        AFRAME.registerComponent('touch-listener', {
-            init: function () {
-                var targetEl = this.el;
-
-                //Create the touchstart event
-                document.querySelector('a-scene').addEventListener('touchstart', function () {
-                    targetEl.emit('starttouch')
-                })
-
-                document.querySelector('a-scene').addEventListener('mousedown', function () {
-                    targetEl.emit('starttouch')
-                })
-
-                document.body.addEventListener('keydown', function (e) {
-                    if (e.keyCode == 32) {
-                        console.log('space key pressed!');
-                        targetEl.emit('starttouch');
-                    }
-                })
-
-                //Create the touchend event
-                document.querySelector('a-scene').addEventListener('touchend', function () {
-                    targetEl.emit('endtouch')
-                })
-
-                document.querySelector('a-scene').addEventListener('mouseup', function () {
-                    targetEl.emit('endtouch')
-                })
-
-                document.body.addEventListener('keyup', function (e) {
-                    if (e.keyCode == 32) {
-                        console.log('space key released!');
-                        targetEl.emit('endtouch');
-                    }
-                })
 
 
-            }
-        });
-    </script>
     <title></title>
 </head>
 
@@ -69,126 +27,112 @@
     <img id="my-image3" src="okna1.jpg" alt="okna">
 </a-assets>
 
-<!--<a-scene joystick vr-mode-ui="enabled: false">-->
 <a-scene>
-    <a-cursor></a-cursor>
-    <a-camera raycaster crawling-cursor="target: #my-cursor"></a-camera>
-    <a-ring id="my-cursor"></a-ring>
 
-<!--    <a-entity id="cameraRig" position="0 1.6 0" >-->
+    <!--    <a-entity id="cameraRig" position="0 1.6 0" >-->
 
-<!--    </a-entity>-->
+    <!--    </a-entity>-->
     <!--     Static floor -->
-        <a-assets>
-            <!-- ... -->
-            <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-            <!-- ... -->
-        </a-assets>
-        <a-assets>
-            <a-cubemap id="sky">
-                <img src="right.png">
-                <img src="left.png">
-                <img src="top.png">
-                <img src="bottom.png">
-                <img src="front.png">
-                <img src="back.png">
-            </a-cubemap>
-        </a-assets>
+<!--    <a-assets>-->
+<!--        &lt;!&ndash; ... &ndash;&gt;-->
+<!--        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">-->
+<!--        &lt;!&ndash; ... &ndash;&gt;-->
+<!--    </a-assets>-->
+<!--    <a-assets>-->
+<!--        <a-cubemap id="sky">-->
+<!--            <img src="right.png">-->
+<!--            <img src="left.png">-->
+<!--            <img src="top.png">-->
+<!--            <img src="bottom.png">-->
+<!--            <img src="front.png">-->
+<!--            <img src="back.png">-->
+<!--        </a-cubemap>-->
+<!--    </a-assets>-->
 
     <a-sky color="#2539C0"></a-sky>
 
-    <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="40" height="160"
+    <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="200" height="200"
              color="#485053"></a-plane>
-    <!-- Static cylinder -->
-    <a-box static-body position="0 6 -29" radius="1" height="16" width="40"
-                color="#d6d6c2"></a-box>
+<!--    &lt;!&ndash; Static cylinder &ndash;&gt;-->
+<!--    <a-box static-body position="0 6 -29" radius="1" height="16" width="40"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-    <a-box static-body position="-21 6.5 -7" rotation="0 90 0" radius="2" height="16" width="165"
+    <a-box static-body position="-21 6.5 -7" rotation="0 90 0" radius="2" height="16" width="45"
            color="#d6d6c2"></a-box>
 
-    <a-box static-body position="5.5 6.5 -7" rotation="0 90 0" radius="2" height="16" width="47"
-           color="#d6d6c2"></a-box>
+<!--    <a-box static-body position="5.5 6.5 -7" rotation="0 90 0" radius="2" height="16" width="47"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-    <a-box static-body position="20 6.5 -7" rotation="0 90 0" radius="2" height="16" width="166"
-           color="#d6d6c2"></a-box>
+<!--    <a-box static-body position="20 6.5 -7" rotation="0 90 0" radius="2" height="16" width="166"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-<!--    <a-box static-body position="-19 6.5 -7" rotation="0 90 0" radius="1" height="14" width="10"-->
-<!--           color="white"></a-box>-->
+<!--    &lt;!&ndash;    <a-box static-body position="-19 6.5 -7" rotation="0 90 0" radius="1" height="14" width="10"&ndash;&gt;-->
+<!--    &lt;!&ndash;           color="white"></a-box>&ndash;&gt;-->
 
     <a-box static-body position="-6.8 6.75 -28.5" radius="1" height="10" width="20"
            color="black"></a-box>
 
-    <a-box static-body position="4.5 6.75 -22.3" rotation="0 90 0" radius="1" height="7" width="6"
+    <a-box static-body position="4.5 6.75 -22.3" rotation="0 90 0" radius="1.5" height="7" width="6"
            color="black"></a-box>
 
-    <a-box static-body position="4.5 6.75 -10.3" rotation="0 90 0" radius="1" height="7" width="6"
+    <a-box static-body position="4.5 6.75 -10.3" rotation="0 90 0" radius="1.5" height="7" width="6"
            color="black"></a-box>
 
-    <a-box static-body position="4.5 6.75 2" rotation="0 90 0" radius="1" height="7" width="6"
+    <a-box static-body position="4.5 6.75 2" rotation="0 90 0" radius="1.5" height="7" width="6"
            color="black"></a-box>
 
-    <a-box static-body position="4.5 6.75 13.4" rotation="0 90 0" radius="1" height="7" width="6"
+    <a-box static-body position="4.5 6.75 13.4" rotation="0 90 0" radius="1.5" height="7" width="6"
            color="black"></a-box>
 
-    <a-box static-body position="0 6.75 75" radius="1" height="16" width="40"
-           color="#d6d6c2"></a-box>
+<!--    <a-box static-body position="0 6.75 75" radius="1" height="16" width="40"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-    <a-box static-body position="1 6.75 40" radius="1" height="16" width="20" rotation="0 45 0"
-           color="#d6d6c2"></a-box>
+<!--    <a-box static-body position="1 6.75 40" radius="1" height="16" width="20" rotation="0 45 0"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-    <a-box static-body position="0.5 8.5 39" radius="1" height="8" width="13" rotation="0 45 0"
+    <a-box static-body position="1 8.5 39" radius="1" height="8" width="15.2" rotation="0 45 0"
            color="black"></a-box>
 
+<!--    <a-box static-body position="1 6.75 53.5" radius="1" height="16" width="20" rotation="0 315 0"-->
+<!--           color="#d6d6c2"></a-box>-->
 
-    <a-image id="my-image" src="monitor-stena.jpg" position="-7.3 6.5 -28.4" width="25" height="16"></a-image>
-    <a-image id="my-image2" src="monitor.jpg" position="-6.8 6.75 -27.9" width="20" height="10"></a-image>
-    <a-image id="my-image3" src="spodok okien.jpg" position="-20 2.5 -7" rotation="0 90 0" height="5" width="45"></a-image>
-    <a-image id="my-image3" src="boky1.jpg" position="-19.8 6.5 -25.5" rotation="0 90 0" height="16" width="8"></a-image>
-    <a-image id="my-image3" src="boky1.jpg" position="-19.8 6.5 12" rotation="0 90 0" height="16" width="6"></a-image>
-    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 8.5" rotation="0 90 0" height="16" width="1"></a-image>
-    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 1" rotation="0 90 0" height="16" width="1"></a-image>
-    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 -6.5" rotation="0 90 0" height="16" width="1"></a-image>
-    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 -14" rotation="0 90 0" height="16" width="1"></a-image>
-    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -18.5" rotation="0 90 0" height="10" width="7"></a-image>
-    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -10.5" rotation="0 90 0" height="10" width="7"></a-image>
-    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -2.5" rotation="0 90 0" height="10" width="7"></a-image>
-    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 5" rotation="0 90 0" height="10" width="7"></a-image>
-    <a-image id="my-image" src="displaye.jpg" position="4.9 6.5 -6" rotation="0 270 0" width="45" height="16"></a-image>
-    <a-image id="my-image" src="display1.jpg" position="3.9 6.75 -22.25" rotation="0 270 0" width="6" height="7"></a-image>
-    <a-image id="my-image" src="display2.jpg" position="3.9 6.75 -10.25" rotation="0 270 0" width="6" height="7"></a-image>
-    <a-image id="my-image" src="display3.jpg" position="3.9 6.75 2" rotation="0 270 0" width="6" height="7"></a-image>
-    <a-image id="my-image" src="display4.jpg" position="3.9 6.75 13.25" rotation="0 270 0" width="6" height="7"></a-image>
-    <a-image id="my-image" src="dvere blok A.jpg" position="12.75 6.75 -28" rotation="0 0 0" width="13.5" height="15"></a-image>
-    <a-image id="my-image" src="lava stena blok A.jpg" position="6.1 6.5 -6" rotation="0 90 0" width="45" height="16"></a-image>
-    <a-image id="my-image" src="stena blok A.jpg" position="19 6.5 -6" rotation="0 270 0" width="166" height="16"></a-image>
-    <a-image id="my-image" src="dreveny stlp.jpg" position="5.5 6.5 16.55" rotation="0 0 0" width="1.25" height="16"></a-image>
-    <a-image id="my-image" src="monitor5.jpg" position="0 6.75 40" rotation="0 225 0" width="20" height="16"></a-image>
-    <a-image id="my-image" src="monitor6.jpg" position="0 8.5 38.5" radius="1" height="8" width="13" rotation="0 225 0"></a-image>
-    <a-image id="my-image" src="zadna stena.jpg" position="0 6.75 74" rotation="0 180 0" radius="1" height="16" width="40"></a-image>
-    <a-image id="my-image" src="vytah.jpg" position="-19.8 6.75 45" rotation="0 90 0" radius="1" height="16" width="60"></a-image>
 
-<!--    Ovladanie pre pocitace-->
-    <a-entity kinematic-body="radius: 0.8" movement-controls="fly: false" position="0 1.6 5" look-controls>
-        <a-entity camera position="0 1.6 0" ></a-entity>
+    <a-image id="my-image" src="monitor-stena.jpg" position="-7.3 6.5 -28.4" width="25" height="16" static-body></a-image>
+    <a-image id="my-image2" src="monitor.jpg" position="-6.8 6.75 -27.9" width="20" height="10" static-body></a-image>
+    <a-image id="my-image3" src="spodok okien.jpg" position="-20 2.5 -7" rotation="0 90 0" height="5" width="45" static-body></a-image>
+    <a-image id="my-image3" src="boky1.jpg" position="-19.8 6.5 -25.5" rotation="0 90 0" height="16" width="8" static-body></a-image>
+    <a-image id="my-image3" src="boky1.jpg" position="-19.8 6.5 12" rotation="0 90 0" height="16" width="6" static-body></a-image>
+    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 8.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 1" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 -6.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image id="my-image3" src="stlpy.jpg" position="-19.8 6.5 -14" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -18.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -10.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 -2.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image id="my-image3" src="okno.jpg" position="-20.3 9.5 5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image id="my-image" src="displaye.jpg" position="4.9 6.5 -6" rotation="0 270 0" width="45" height="16" static-body></a-image>
+    <a-image id="my-image" src="display1.jpg" position="3.9 6.75 -22.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image id="my-image" src="display2.jpg" position="3.9 6.75 -10.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image id="my-image" src="display3.jpg" position="3.9 6.75 2" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image id="my-image" src="display4.jpg" position="3.9 6.75 13.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image id="my-image" src="dvere blok A.jpg" position="12.75 6.75 -28" rotation="0 0 0" width="13.5" height="15" static-body></a-image>
+    <a-image id="my-image" src="lava stena blok A.jpg" position="6.1 6.5 -6" rotation="0 90 0" width="45" height="16" static-body></a-image>
+    <a-image id="my-image" src="stena blok A.jpg" position="19 6.5 -6" rotation="0 270 0" width="166" height="16" static-body></a-image>
+    <a-image id="my-image" src="dreveny stlp.jpg" position="5.5 6.5 16.55" rotation="0 0 0" width="1.25" height="16" static-body></a-image>
+    <a-image id="my-image" src="monitor5.jpg" position="0 6.75 39.5" rotation="0 225 0" width="20" height="16" static-body></a-image>
+    <a-image id="my-image" src="new-monitor.jpg" position="0 8.5 39.2" radius="1" height="8" width="13.5" rotation="0 225 0" static-body></a-image>
+    <a-image id="my-image" src="T-Systems.jpg" position="0 6.75 53.65" radius="1" height="16" width="20" rotation="0 315 0" static-body></a-image>
+    <a-image id="my-image" src="zadna stena.jpg" position="0 6.75 74.4" rotation="0 180 0" radius="1" height="16" width="40" static-body></a-image>
+    <a-image id="my-image" src="zadna strana.jpg" position="10 6.75 46.5" rotation="0 90 0" radius="1" height="16" width="28.5" static-body></a-image>
+    <a-image id="my-image" src="bok.jpg" position="8.5 6.75 60.75" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
+    <a-image id="my-image" src="bok.jpg" position="8.5 6.75 32.35" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
+
+    <!--    <a-image id="my-image" src="vytah.jpg" position="-19.8 6.75 45" rotation="0 90 0" radius="1" height="16" width="60"></a-image>-->
+
+    <!--    Ovladanie pre pocitace-->
+    <a-entity kinematic-body="radius: 0.8" movement-controls="fly: false" position="0 1.6 5" look-controls raycaster crawling-cursor>
+        <a-entity camera position="0 2.6 0" ></a-entity>
     </a-entity>
-<!-- Ovladanie pre mobily-->
-<!--    <a-entity kinematic-body="radius: 0.8" movement-controls="fly: false" position="0 1.6 5" look-controls>-->
-    <!--        <a-entity id="head" position="0 1.6 0" camera="userHeight:0" look-controls="pointerLockEnabled:true">-->
-    <!--            <a-entity position="0 1.6 0"-->
-    <!--                      touch-listener-->
-    <!--                      teleport-controls=-->
-    <!--                              "cameraRig: #cameraRig;-->
-    <!--             teleportOrigin: #head;-->
-    <!--             startEvents:starttouch;-->
-    <!--             endEvents:endtouch;-->
-    <!--             curveShootingSpeed:15;-->
-    <!--             hitCylinderRadius:1;-->
-    <!--             collisionEntities: [ground]"-->
-    <!--            >-->
-    <!--            </a-entity>-->
-    <!--        </a-entity>-->
-<!--    <a-entity kinematic-body="radius: 0.8"  movement-controls="fly: false" camera id="camera" position="0 4 0" look-controls wasd-controls>-->
-<!--    </a-entity>-->
 
 
 </a-scene>
