@@ -13,6 +13,42 @@
 <body>
 <a-scene>
 
+    <a-assets>
+        <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+        <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
+        <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
+        <a-mixin id="red" material="color: red"></a-mixin>
+        <a-mixin id="green" material="color: green"></a-mixin>
+        <a-mixin id="blue" material="color: blue"></a-mixin>
+        <a-mixin id="yellow" material="color: yellow"></a-mixin>
+        <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+    </a-assets>
+
+    <a-entity position="-3.5 1 0">
+        <a-entity mixin="cube red">
+            <a-animation begin="click" attribute="position" from="0 0 0"
+                         to="0 0 -10" dur="2000" fill="both"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="0 1 0">
+        <a-entity mixin="cube green">
+            <a-animation begin="click" attribute="rotation" to="0 360 0"
+                         easing="linear" dur="2000" fill="backwards"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="3.5 1 0" rotation="0 45 0">
+        <a-entity mixin="cube blue">
+            <a-animation begin="click" fill="forwards" repeat="1"
+                         direction="alternate" attribute="position" from="0 0 0"
+                         to="15 0 0" dur="2000"></a-animation>
+        </a-entity>
+    </a-entity>
+
+    <a-entity position="0 3 0" class="clickable" mixin="cube yellow"
+              rotation="0 45 0" scale=".5 .5 .5"></a-entity>
+
     <a-sky color="#2539C0"></a-sky>
 
     <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="500" height="500"
@@ -83,6 +119,7 @@
            color="#767676"></a-box>
     <a-box position="-210.1 6.5 43.5" rotation="0 90 0" radius="2" height="16" width="16" static-body
            color="#767676"></a-box>
+
 
 
 <!-- L9A -->
@@ -264,8 +301,21 @@
 
     <!--    Ovladanie pre pocitace-->
     <a-entity kinematic-body="radius: 0.8" movement-controls="fly: false" position="0 1.6 5" look-controls raycaster crawling-cursor>
-        <a-entity camera position="0 2.6 0" ></a-entity>
+        <a-entity camera position="0 4 0" >
+            <a-entity position="0 0 -3"
+                      geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
+                      material="color: cyan; shader: flat"
+                      cursor="maxDistance: 30; fuse: true">
+                <a-animation begin="click" easing="ease-in" attribute="scale"
+                             fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
+                <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                             fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
+            </a-entity>
+
+        </a-entity>
+
     </a-entity>
+
 
 
 </a-scene>
