@@ -2,7 +2,8 @@
 <html lang="en-US">
 <head>
     <title>A-Frame: KPI FEI TUKE</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
@@ -113,7 +114,7 @@
                          easing="linear" dur="2000" fill="backwards"></a-animation>
         </a-sphere>
     </a-entity>
-
+<a-entity>
     <a-plane position="3 4 13" class="clickable" mixin="cube yellow"
              rotation="0 0 0" scale=".5 .5 .5">
         <a-animation begin="click" attribute="position" from="0 0 0"
@@ -121,7 +122,7 @@
         <a-animation begin="click" attribute="rotation" to="0 360 0"
                      easing="linear" dur="2000" fill="backwards"></a-animation>
     </a-plane>
-
+</a-entity>
     <a-sky color="#2539C0"></a-sky>
 
     <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="500" height="500"
