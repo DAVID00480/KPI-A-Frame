@@ -81,10 +81,12 @@
         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="yellow" material="color: yellow"></a-mixin>
         <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+<!--        <a-asset-item id="object" src="Untitled.obj"></a-asset-item>-->
+<!--        <a-asset-item id="material" src="Untitled.mtl"></a-asset-item>-->
     </a-assets>
 
 
-
+<!--    <a-obj-model src="#object" mtl="#material" position="-3 3 -3"></a-obj-model>-->
     <a-entity position="-204.5 4 16">
         <a-box mixin="cube red">
             <a-animation begin="click" attribute="position" from="0 0 0"
@@ -114,9 +116,8 @@
                          easing="linear" dur="2000" fill="backwards"></a-animation>
         </a-sphere>
     </a-entity>
-<a-entity>
-    <a-plane position="3 4 13" class="clickable" mixin="cube yellow"
-             rotation="0 0 0" scale=".5 .5 .5">
+<a-entity position="3 4 13" rotation="0 0 0">
+    <a-plane mixin="cube yellow">
         <a-animation begin="click" attribute="position" from="0 0 0"
                      to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>
         <a-animation begin="click" attribute="rotation" to="0 360 0"
