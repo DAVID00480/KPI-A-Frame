@@ -2,8 +2,9 @@
 <html lang="en-US">
 <head>
     <title>A-Frame: KPI FEI TUKE</title>
+<!--    <script src="//aframe.io/releases/1.0.4/aframe.min.js"></script>-->
     <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+<!--    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>-->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
@@ -65,12 +66,45 @@
         });
     </script>
 
+    <script>
+        AFRAME.registerComponent('collider-check', {
+            dependencies: ['raycaster'],
+
+            init: function () {
+                this.el.addEventListener('raycaster-intersection', function () {
+                    console.log('Player hit something!');
+                });
+            }
+        });
+    </script>
 
 </head>
 
 <body>
 <a-scene score-counter>
 
+    <a-box height="2" width="5" depth="25"  position="-22.5 -1 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-24.5 -1.6 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-26.5 -2.2 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-28.5 -2.8 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-30.5 -3.4 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-32.5 -4 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-34.5 -4.6 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-36.5 -5.2 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-38.5 -5.8 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-40.5 -6.4 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-42.5 -7 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-44.5 -7.6 27.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-46.5 -8.2 27.5" color="grey" static-body></a-box>
+
+    <a-box height="2" width="20" depth="50"  position="-48.5 -8.8 14.5" color="grey" static-body></a-box>
+
+    <a-box height="2" width="5" depth="25"  position="-37.5 -9.4 2.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-35.5 -10 2.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-33.5 -10.6 2.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-31.5 -11.2 2.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-29.5 -11.8 2.5" color="grey" static-body></a-box>
+    <a-box height="2" width="5" depth="25"  position="-27.5 -12.4 2.5" color="grey" static-body></a-box>
 
     <a-assets>
         <a-mixin id="cube" geometry="primitive: box"></a-mixin>
@@ -81,12 +115,22 @@
         <a-mixin id="blue" material="color: blue"></a-mixin>
         <a-mixin id="yellow" material="color: yellow"></a-mixin>
         <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
-<!--        <a-asset-item id="object" src="Untitled.obj"></a-asset-item>-->
-<!--        <a-asset-item id="material" src="Untitled.mtl"></a-asset-item>-->
     </a-assets>
 
+    <a-assets>
+        <a-asset-item id="object" src="chair.obj"></a-asset-item>
+        <a-asset-item id="material" src="chair.mtl"></a-asset-item>
+<!--        <a-asset-item id="object1" src="stairs.obj"></a-asset-item>-->
+<!--        <a-asset-item id="material1" src="stairs.mtl"></a-asset-item>-->
+    </a-assets>
 
-<!--    <a-obj-model src="#object" mtl="#material" position="-3 3 -3"></a-obj-model>-->
+    <a-obj-model src="#object" mtl="#material" scale="0.05 0.07 0.05" position="-3 -0.5 11" static-body></a-obj-model>
+    <a-obj-model src="#object" mtl="#material" scale="0.05 0.07 0.05" position="-3 -0.5 16" static-body></a-obj-model>
+    <a-obj-model src="#object" mtl="#material" scale="0.05 0.07 0.05" position="-8 -0.5 9" static-body></a-obj-model>
+    <a-obj-model src="#object" mtl="#material" scale="0.05 0.07 0.05" position="-8 -0.5 14" static-body></a-obj-model>
+
+<!--    <a-obj-model src="#object1" mtl="#material1" scale="0.25 0.25 0.25" position="-43 -8 14" rotation="180 180 180" static-body></a-obj-model>-->
+<!--    <a-obj-model src="chair.obj" mtl="chair.mtl"></a-obj-model>-->
     <a-entity position="-204.5 4 16">
         <a-box mixin="cube red">
             <a-animation begin="click" attribute="position" from="0 0 0"
@@ -116,7 +160,7 @@
                          easing="linear" dur="2000" fill="backwards"></a-animation>
         </a-sphere>
     </a-entity>
-<a-entity position="3 4 13" rotation="0 0 0">
+<a-entity position="3 4 13">
     <a-plane mixin="cube yellow">
         <a-animation begin="click" attribute="position" from="0 0 0"
                      to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>
@@ -126,9 +170,12 @@
 </a-entity>
     <a-sky color="#2539C0"></a-sky>
 
-    <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="500" height="500"
+    <a-plane static-body position="0 0 -55" rotation="-90 0 0" width="40" height="280"
              color="#485053"></a-plane>
-
+    <a-plane static-body position="-100 0 60" rotation="-90 0 0" width="220" height="40"
+             color="#485053"></a-plane>
+    <a-plane static-body position="-200 0 30" rotation="-90 0 0" width="50" height="50"
+             color="#485053"></a-plane>
 
     <a-box static-body position="-21 6.5 -7" rotation="0 90 0" radius="2" height="16" width="45"
            color="#d6d6c2"></a-box>
@@ -199,7 +246,7 @@
 
     <!-- L9A -->
 
-    <a-box static-body position="21 6.5 7" rotation="0 90 0" radius="2" height="16" width="158"
+    <a-box static-body position="21 6.5 18" rotation="0 90 0" radius="2" height="16" width="140"
            color="#767676"></a-box>
 
     <a-box static-body position="6 6.5 -68" rotation="0 90 0" radius="2" height="16" width="8"
@@ -340,7 +387,7 @@
     <a-image id="my-image" src="wcm.jpg" position="-8 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
     <a-image id="my-image" src="wcw.jpg" position="-15 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
     <a-image id="my-image" src="paternoster.jpg" position="-19 6.5 76.5" rotation="0 90 0" radius="2" height="16" width="16" static-body ></a-image>
-    <a-image id="my-image" src="schody.jpg" position="-19.9 6.5 27.5" rotation="0 90 0" radius="2" height="16" width="25" static-body ></a-image>
+<!--    <a-image id="my-image" src="schody.jpg" position="-19.9 6.5 27.5" rotation="0 90 0" radius="2" height="16" width="25" static-body ></a-image>-->
     <a-image id="my-image" src="zabradle.jpg" position="-32.4 6.5 40" rotation="0 0 0" radius="2" height="16" width="25" static-body ></a-image>
     <a-image id="my-image" src="central.jpg" position="-31.5 8 66.4" rotation="0 180 0"  radius="2" height="12" width="18" static-body ></a-image>
     <a-image id="my-image" src="automatic.jpg" position="-48.4 6.5 43" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
