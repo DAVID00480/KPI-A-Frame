@@ -28,12 +28,12 @@
                 var sceneEl = document.querySelector('a-scene');
                 var scoreBoard = document.querySelector('#score');
 
-                sceneEl.querySelector("a-box").addEventListener('click', () => {
+                sceneEl.querySelector("a-triangle").addEventListener('click', () => {
                     if(this.data.score === 3) {
                         scoreBoard.setAttribute('text','value',"You won !!!");
                     }else {
                         this.data.score++;
-                        var newScore = 'Cubes: ' + this.data.score + ' of 4';
+                        var newScore = 'Objects: ' + this.data.score + ' of 4';
                         scoreBoard.setAttribute('text', 'value', newScore);
                     }
                 });
@@ -42,7 +42,7 @@
                         scoreBoard.setAttribute('text','value',"You won !!!");
                     }else {
                         this.data.score++;
-                        var newScore = 'Cubes: ' + this.data.score + ' of 4';
+                        var newScore = 'Objects: ' + this.data.score + ' of 4';
                         scoreBoard.setAttribute('text', 'value', newScore);
                     }
                 });
@@ -51,7 +51,7 @@
                         scoreBoard.setAttribute('text','value',"You won !!!");
                     }else {
                         this.data.score++;
-                        var newScore = 'Cubes: ' + this.data.score + ' of 4';
+                        var newScore = 'Objects: ' + this.data.score + ' of 4';
                         scoreBoard.setAttribute('text', 'value', newScore);
                     }
                 });
@@ -60,7 +60,7 @@
                         scoreBoard.setAttribute('text','value',"You won !!!");
                     }else {
                         this.data.score++;
-                        var newScore = 'Cubes: ' + this.data.score + ' of 4';
+                        var newScore = 'Objects: ' + this.data.score + ' of 4';
                         scoreBoard.setAttribute('text', 'value', newScore);
 
                     }
@@ -68,18 +68,21 @@
             }
         });
     </script>
+    <!--Debugging-->
+    <!--    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"-->
+    <!--           event-set__enter="_event: mouseenter; color: #8FF7FF"-->
+    <!--           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>-->
+<!--    <script>-->
+<!--        AFRAME.registerComponent('collider-check', {-->
+<!--            dependencies: ['raycaster'],-->
 
-    <script>
-        AFRAME.registerComponent('collider-check', {
-            dependencies: ['raycaster'],
-
-            init: function () {
-                this.el.addEventListener('raycaster-intersection', function () {
-                    console.log('Player hit something!');
-                });
-            }
-        });
-    </script>
+<!--            init: function () {-->
+<!--                this.el.addEventListener('raycaster-intersection', function () {-->
+<!--                    console.log('Player hit something!');-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
 
 </head>
 
@@ -156,23 +159,24 @@
     <a-obj-model src="#object2" mtl="#material2" scale="7 15 2" rotation="0 90 0" position="-19.6 -29.5 42" static-body></a-obj-model>
 
     <a-entity position="-204.5 7 16">
-        <a-box mixin="cube red"
-               rotation="0 0 0" animation__mouseenter="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:150"
-               animation__mouseenter__2="property: object3D.position.y; to: -10; startEvents: mouseenter; dur:1500">
+        <a-triangle mixin="triangle red"
+               rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+               animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
+        >
 <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
 <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
 <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
 <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
 
-        </a-box>
+        </a-triangle>
     </a-entity>
 
 
     <a-entity position="-185 7 16">
 
-        <a-cylinder  mixin="cube green"
-                     rotation="0 0 0" animation__mouseenter="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:150"
-                     animation__mouseenter__2="property: object3D.position.y; to: -10; startEvents: mouseenter; dur:1500">
+        <a-cylinder  mixin="cylinder green"
+                     rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+                     animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
 
 <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
 <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
@@ -182,9 +186,9 @@
     </a-entity>
 
     <a-entity position="13 7 -190">
-        <a-sphere mixin="cube blue"
-                  rotation="0 0 0" animation__mouseenter="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:150"
-                  animation__mouseenter__2="property: object3D.position.y; to: -10; startEvents: mouseenter; dur:1500">
+        <a-sphere mixin="sphere blue"
+                  rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+                  animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
 <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
 <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
 <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
@@ -192,9 +196,9 @@
         </a-sphere>
     </a-entity>
 <a-entity position="3 7 13">
-    <a-plane mixin="cube yellow"
-             rotation="0 0 0" animation__mouseenter="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:150"
-             animation__mouseenter__2="property: object3D.position.y; to: -10; startEvents: click; dur:1500"
+    <a-plane mixin="plane yellow"
+             rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+             animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
             >
 <!--        <a-animation begin="click" attribute="position" from="0 0 0"-->
 <!--                     to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
@@ -458,13 +462,14 @@
     <!--    Ovladanie pre pocitace-->
     <a-entity kinematic-body="radius: 0.8" movement-controls="fly: false" mouse-based cursor tracked-controls look-controls raycaster crawling-cursor>
         <a-entity camera position="0 7 0" >
-            <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
+            <a-text id="score" text="value: Objects: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                       material="color: cyan; shader: flat"
                       cursor="maxDistance: 30; fuse: true"
-                        animation="property: object3D.scale;from: 1 1 1; to: 0.2 0.2 0.2"
-                      animation__2="property: object3D.scale;from: 1 1 1; to: 0.2 0.2 0.2">
+                      animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.2 0.2 0.2; to: 1 1 1"
+                      animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.2 0.2 0.2"
+                      animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
 <!--                      animation="begin: click; easing: easeInCirc; attribute: scale;-->
 <!--            fill: forwards; from: 0.2 0.2 0.2; to: 1 1 1; dur: 150;"-->
 <!--                      animation__2="begin: fusing; easing: ease-in; attribute: scale;-->
@@ -479,9 +484,6 @@
 
     </a-entity>
 
-    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
-           event-set__enter="_event: mouseenter; color: #8FF7FF"
-           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
 
 
 </a-scene>
