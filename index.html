@@ -3,7 +3,9 @@
 <head>
     <title>A-Frame: KPI FEI TUKE</title>
     <script src="//aframe.io/releases/1.0.4/aframe.min.js"></script>
-<!--    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+    <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
+    <!--    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>-->
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 <!--    <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>-->
 <!--    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>-->
@@ -88,7 +90,7 @@
 </head>
 
 <body>
-<a-scene score-counter>
+<a-scene score-counter networked-scene>
 
     <a-box height="2" width="5" depth="10"  position="-22.5 -1 34.5" color="grey" static-body></a-box>
     <a-box height="2" width="5" depth="10"  position="-24.5 -1.6 34.5" color="grey" static-body></a-box>
@@ -124,6 +126,10 @@
 
 
     <a-assets>
+
+        <template id="avatar-template">
+            <a-sphere></a-sphere>
+        </template>
         <a-mixin id="cube" geometry="primitive: box"></a-mixin>
         <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
         <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
@@ -155,14 +161,37 @@
 
 
     <a-obj-model src="#object1" mtl="#material1" scale="10 15 2" rotation="0 180 0" position="0.25 -29.25 40" static-body></a-obj-model>
-    <a-box color="grey" scale="25 20 0.125" position="-30 -4 40.125" static-body></a-box>
+    <a-box color="grey" scale="25 20 0.125" position="-30 -4 40.125" visible="false" static-body></a-box>
 
     <a-obj-model src="#object1" mtl="#material1" scale="7 15 2" rotation="0 90 0" position="-19.6 -29.5 42" static-body></a-obj-model>
-    <a-box color="white" rotation="0 90 0" scale="15 10 0.125" position="-19.8 0 22" static-body></a-box>
+    <a-box color="white" rotation="0 90 0" scale="15 10 0.125" position="-19.8 0 22" visible="false" static-body></a-box>
 <!--    <a-obj-model src="#object1" mtl="#material1" scale="0.25 0.25 0.25" position="-43 -8 14" rotation="180 180 180" static-body></a-obj-model>-->
 <!--    <a-obj-model src="chair.obj" mtl="chair.mtl"></a-obj-model>-->
 
-    <a-obj-model src="#object2" mtl="#material2" scale="7 15 2" rotation="0 90 0" position="-19.6 -29.5 42" static-body></a-obj-model>
+<!--    <a-obj-model src="#object2" mtl="#material2" scale="0.1 0.3 0.25" rotation="0 90 0" position="-15 -7 38" static-body></a-obj-model>-->
+<a-cylinder color="black" position="-23 0.4 39" height="6" static-body></a-cylinder>
+    <a-box color="#AE2F00"  height="1" width="11.5" depth="2" position="-23.2 3.8 39" static-body></a-box>
+    <a-cylinder color="black" position="-53 -8 39" height="6" static-body></a-cylinder>
+    <a-box color="#AE2F00"  height="1" width="11.5" depth="2" position="-55 -5 39" static-body></a-box>
+    <a-box color="#AE2F00" rotation="0 0 23"  height="1" width="23" depth="2" position="-39.3 -0.6 39" static-body></a-box>
+
+    <a-cylinder color="black" position="-23 0.4 29" height="6" static-body></a-cylinder>
+    <a-box color="#AE2F00"  height="1" width="10.25" depth="2" position="-24.2 3.53 29" static-body></a-box>
+    <a-cylinder color="black" position="-48.6 -8 27.8" height="6" static-body></a-cylinder>
+    <a-cylinder color="black" position="-40.2 -8 27" height="6" static-body></a-cylinder>
+    <a-box color="#AE2F00"  height="1" width="11.5" depth="2" position="-44 -5.35 27" static-body></a-box>
+    <a-box color="#AE2F00" rotation="0 0 23"  height="1" width="23" depth="2" position="-39.3 -0.8 29" static-body></a-box>
+
+    <a-box color="#AE2F00" rotation="0 90 0"  height="1" width="23" depth="2" position="-57 -5 27" static-body></a-box>
+
+    <a-cylinder color="black" position="-53 -8 16" height="6" static-body></a-cylinder>
+    <a-cylinder color="black" position="-39.5 -8 16" height="6" static-body></a-cylinder>
+    <a-box color="#AE2F00"  height="1" width="20" depth="2" position="-48 -5 16" static-body></a-box>
+    <a-box color="#AE2F00" rotation="0 180 12"  height="1" width="21" depth="2" position="-27.8 -7.15 16" static-body></a-box>
+    <a-box color="#AE2F00" rotation="0 180 12"  height="1" width="21" depth="2" position="-27.8 -7.45 26.9" static-body></a-box>
+
+    <a-box height="10" width="40" position="-36 -3.1 38" visible="false" static-body></a-box>
+    <a-box height="10" width="30" position="-36 -3.1 29.6" visible="false" static-body></a-box>
 
     <a-entity position="-204.5 7 16">
         <a-triangle mixin="triangle red"
