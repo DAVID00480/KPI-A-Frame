@@ -7,14 +7,17 @@
     <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
     <!--    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>-->
     <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
-<!--    <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>-->
-<!--    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>-->
+    <!--    <script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>-->
+    <!--    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>-->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
-<!--    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>-->
-<!--    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>-->
+    <!--    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>-->
+    <!--    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>-->
     <script src="https://cdn.rawgit.com/delapuente/aframe-sharedspace-component/master/dist/aframe-sharedspace-component.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+    <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
+
 
     <script>
         AFRAME.registerComponent('spawn-in-circle', {
@@ -48,7 +51,6 @@
             }
         });
     </script>
-
 
     <script>
         AFRAME.registerComponent('score-counter', {
@@ -110,63 +112,22 @@
     <!--    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"-->
     <!--           event-set__enter="_event: mouseenter; color: #8FF7FF"-->
     <!--           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>-->
-<!--    <script>-->
-<!--        AFRAME.registerComponent('collider-check', {-->
-<!--            dependencies: ['raycaster'],-->
+    <!--    <script>-->
+    <!--        AFRAME.registerComponent('collider-check', {-->
+    <!--            dependencies: ['raycaster'],-->
 
-<!--            init: function () {-->
-<!--                this.el.addEventListener('raycaster-intersection', function () {-->
-<!--                    console.log('Player hit something!');-->
-<!--                });-->
-<!--            }-->
-<!--        });-->
-<!--    </script>-->
+    <!--            init: function () {-->
+    <!--                this.el.addEventListener('raycaster-intersection', function () {-->
+    <!--                    console.log('Player hit something!');-->
+    <!--                });-->
+    <!--            }-->
+    <!--        });-->
+    <!--    </script>-->
 
 </head>
 
 <body>
-<a-scene score-counter networked-scene="
-  app: myApp;
-  room: room1;
-  debug: true;
-">
-
-    <a-assets>
-        <template id="avatar-template">
-            <a-entity class="avatar">
-                <a-sphere class="head"
-                          color="#5985ff"
-                          scale="0.45 0.5 0.4"
-                ></a-sphere>
-                <a-entity class="face"
-                          position="0 0.05 0"
-                >
-                    <a-sphere class="eye"
-                              color="#efefef"
-                              position="0.16 0.1 -0.35"
-                              scale="0.12 0.12 0.12"
-                    >
-                        <a-sphere class="pupil"
-                                  color="#000"
-                                  position="0 0 -1"
-                                  scale="0.2 0.2 0.2"
-                        ></a-sphere>
-                    </a-sphere>
-                    <a-sphere class="eye"
-                              color="#efefef"
-                              position="-0.16 0.1 -0.35"
-                              scale="0.12 0.12 0.12"
-                    >
-                        <a-sphere class="pupil"
-                                  color="#000"
-                                  position="0 0 -1"
-                                  scale="0.2 0.2 0.2"
-                        ></a-sphere>
-                    </a-sphere>
-                </a-entity>
-            </a-entity>
-        </template>
-    </a-assets>
+<a-scene score-counter networked-scene>
 
     <a-box height="2" width="5" depth="10"  position="-22.5 -1 34.5" color="grey" static-body></a-box>
     <a-box height="2" width="5" depth="10"  position="-24.5 -1.6 34.5" color="grey" static-body></a-box>
@@ -201,7 +162,62 @@
     <a-box height="28" width="20" depth="0" rotation="0 0 0" position="-39 0.5 39" color="grey" static-body></a-box>
 
 
+    <a-assets>
 
+        <template id="avatar-template">
+            <a-entity class="avatar">
+                <a-sphere class="head"
+                          color="#5985ff"
+                          scale="0.45 0.5 0.4"
+                ></a-sphere>
+                <a-entity class="face"
+                          position="0 0.05 0"
+                >
+                    <a-sphere class="eye"
+                              color="#efefef"
+                              position="0.16 0.1 -0.35"
+                              scale="0.12 0.12 0.12"
+                    >
+                        <a-sphere class="pupil"
+                                  color="#000"
+                                  position="0 0 -1"
+                                  scale="0.2 0.2 0.2"
+                        ></a-sphere>
+                    </a-sphere>
+                    <a-sphere class="eye"
+                              color="#efefef"
+                              position="-0.16 0.1 -0.35"
+                              scale="0.12 0.12 0.12"
+                    >
+                        <a-sphere class="pupil"
+                                  color="#000"
+                                  position="0 0 -1"
+                                  scale="0.2 0.2 0.2"
+                        ></a-sphere>
+                    </a-sphere>
+                </a-entity>
+            </a-entity>
+        </template>
+        <a-mixin id="cube" geometry="primitive: box"></a-mixin>
+        <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
+        <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
+        <a-mixin id="red" material="color: red"></a-mixin>
+        <a-mixin id="green" material="color: green"></a-mixin>
+        <a-mixin id="blue" material="color: blue"></a-mixin>
+        <a-mixin id="yellow" material="color: yellow"></a-mixin>
+        <a-mixin id="sphere" geometry="primitive: sphere"></a-mixin>
+    </a-assets>
+
+    <a-assets>
+        <a-asset-item id="object" src="chair.obj"></a-asset-item>
+        <a-asset-item id="material" src="chair.mtl"></a-asset-item>
+        <a-asset-item id="object1" src="zabradlie.obj"></a-asset-item>
+        <a-asset-item id="material1" src="zabradlie.mtl"></a-asset-item>
+        <a-asset-item id="object2" src="zabradlie2.obj"></a-asset-item>
+        <a-asset-item id="material2" src="zabradlie2.mtl"></a-asset-item>
+        <a-asset-item id="testo" src="test.obj"></a-asset-item>
+        <a-asset-item id="testm" src="test.mtl"></a-asset-item>
+    </a-assets>
 
     <a-obj-model src="#testo" mtl="#testm" position="0 0 7"></a-obj-model>
 
@@ -217,11 +233,11 @@
 
     <a-obj-model src="#object1" mtl="#material1" scale="7 15 2" rotation="0 90 0" position="-19.6 -29.5 42" static-body></a-obj-model>
     <a-box color="white" rotation="0 90 0" scale="15 10 0.125" position="-19.8 0 22" visible="false" static-body></a-box>
-<!--    <a-obj-model src="#object1" mtl="#material1" scale="0.25 0.25 0.25" position="-43 -8 14" rotation="180 180 180" static-body></a-obj-model>-->
-<!--    <a-obj-model src="chair.obj" mtl="chair.mtl"></a-obj-model>-->
+    <!--    <a-obj-model src="#object1" mtl="#material1" scale="0.25 0.25 0.25" position="-43 -8 14" rotation="180 180 180" static-body></a-obj-model>-->
+    <!--    <a-obj-model src="chair.obj" mtl="chair.mtl"></a-obj-model>-->
 
-<!--    <a-obj-model src="#object2" mtl="#material2" scale="0.1 0.3 0.25" rotation="0 90 0" position="-15 -7 38" static-body></a-obj-model>-->
-<a-cylinder color="black" position="-23 0.4 39" height="6" static-body></a-cylinder>
+    <!--    <a-obj-model src="#object2" mtl="#material2" scale="0.1 0.3 0.25" rotation="0 90 0" position="-15 -7 38" static-body></a-obj-model>-->
+    <a-cylinder color="black" position="-23 0.4 39" height="6" static-body></a-cylinder>
     <a-box color="#AE2F00"  height="1" width="11.5" depth="2" position="-23.2 3.8 39" static-body></a-box>
     <a-cylinder color="black" position="-53 -8 39" height="6" static-body></a-cylinder>
     <a-box color="#AE2F00"  height="1" width="11.5" depth="2" position="-55 -5 39" static-body></a-box>
@@ -247,13 +263,13 @@
 
     <a-entity position="-204.5 7 16">
         <a-triangle mixin="triangle red"
-               rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
-               animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
+                    rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+                    animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
         >
-<!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-<!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-<!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-<!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
+            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
+            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
 
         </a-triangle>
     </a-entity>
@@ -265,10 +281,10 @@
                      rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                      animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
 
-<!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-<!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-<!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-<!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
+            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
+            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
         </a-cylinder>
     </a-entity>
 
@@ -276,23 +292,23 @@
         <a-sphere mixin="sphere blue"
                   rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                   animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
-<!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-<!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-<!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-<!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
+            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
+            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
+            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
         </a-sphere>
     </a-entity>
-<a-entity position="3 7 -27">
-    <a-plane mixin="plane yellow"
-             rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
-             animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
-            >
-<!--        <a-animation begin="click" attribute="position" from="0 0 0"-->
-<!--                     to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-<!--        <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-<!--                     easing="linear" dur="2000" fill="backwards"></a-animation>-->
-    </a-plane>
-</a-entity>
+    <a-entity position="3 7 -27">
+        <a-plane mixin="plane yellow"
+                 rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
+                 animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
+        >
+            <!--        <a-animation begin="click" attribute="position" from="0 0 0"-->
+            <!--                     to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
+            <!--        <a-animation begin="click" attribute="rotation" to="0 360 0"-->
+            <!--                     easing="linear" dur="2000" fill="backwards"></a-animation>-->
+        </a-plane>
+    </a-entity>
     <a-sky color="#2539C0"></a-sky>
 
     <a-plane static-body position="0 0 -55" rotation="-90 0 0" width="40" height="280"
@@ -512,8 +528,8 @@
     <a-image id="my-image" src="wcm.jpg" position="-8 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
     <a-image id="my-image" src="wcw.jpg" position="-15 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
     <a-image id="my-image" src="paternoster.jpg" position="-19 6.5 76.5" rotation="0 90 0" radius="2" height="16" width="16" static-body ></a-image>
-<!--    <a-image id="my-image" src="schody.jpg" position="-19.9 6.5 27.5" rotation="0 90 0" radius="2" height="16" width="25" static-body ></a-image>-->
-<!--    <a-image id="my-image" src="zabradle.jpg" position="-32.4 6.5 40" rotation="0 0 0" radius="2" height="16" width="25" static-body ></a-image>-->
+    <!--    <a-image id="my-image" src="schody.jpg" position="-19.9 6.5 27.5" rotation="0 90 0" radius="2" height="16" width="25" static-body ></a-image>-->
+    <!--    <a-image id="my-image" src="zabradle.jpg" position="-32.4 6.5 40" rotation="0 0 0" radius="2" height="16" width="25" static-body ></a-image>-->
     <a-image id="my-image" src="central.jpg" position="-31.5 8 66.4" rotation="0 180 0"  radius="2" height="12" width="18" static-body ></a-image>
     <a-image id="my-image" src="automatic.jpg" position="-48.4 6.5 43" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
     <a-image id="my-image" src="door11.jpg" position="-55 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>
@@ -547,8 +563,8 @@
 
 
     <!--    Ovladanie pre pocitace-->
-    <a-entity  kinematic-body="radius: 0.8" movement-controls="fly: false" cursor look-controls raycaster crawling-cursor>
-        <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;"  camera position="0 7 0" >
+    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false" mouse-based cursor tracked-controls look-controls raycaster crawling-cursor>
+        <a-entity camera position="0 7 0" >
             <a-text id="score" text="value: Objects: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
@@ -557,14 +573,14 @@
                       animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.2 0.2 0.2; to: 1 1 1"
                       animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.2 0.2 0.2"
                       animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
-<!--                      animation="begin: click; easing: easeInCirc; attribute: scale;-->
-<!--            fill: forwards; from: 0.2 0.2 0.2; to: 1 1 1; dur: 150;"-->
-<!--                      animation__2="begin: fusing; easing: ease-in; attribute: scale;-->
-<!--                      " >-->
-<!--              <a-animation begin="click"; easing="ease-in" attribute="scale"-->
-<!--                             fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>-->
-<!--                <a-animation begin="fusing" easing="ease-in" attribute="scale"-->
-<!--                             fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>-->
+                <!--                      animation="begin: click; easing: easeInCirc; attribute: scale;-->
+                <!--            fill: forwards; from: 0.2 0.2 0.2; to: 1 1 1; dur: 150;"-->
+                <!--                      animation__2="begin: fusing; easing: ease-in; attribute: scale;-->
+                <!--                      " >-->
+                <!--              <a-animation begin="click"; easing="ease-in" attribute="scale"-->
+                <!--                             fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>-->
+                <!--                <a-animation begin="fusing" easing="ease-in" attribute="scale"-->
+                <!--                             fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>-->
             </a-entity>
 
         </a-entity>
