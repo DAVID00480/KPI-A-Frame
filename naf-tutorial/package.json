@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./server/index.js"
   },
-  "author": "David_Katreniak",
+  "author": "YOUR_NAME",
   "dependencies": {
     "networked-aframe": "^0.7.0"
   }
