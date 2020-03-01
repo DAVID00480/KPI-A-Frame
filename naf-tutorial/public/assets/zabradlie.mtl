@@ -2,26 +2,14 @@
 ## Alias OBJ Material File
 # Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
 
-newmtl Circles
-Ka 0.000000 0.000000 0.000000
-Kd 0.909804 0.909804 0.909804
-Ks 0.330000 0.330000 0.330000
-map_Kd zabradlie/Circles.png
-
 newmtl FrontColor
 Ka 0.000000 0.000000 0.000000
 Kd 1.000000 1.000000 1.000000
 Ks 0.330000 0.330000 0.330000
 
-newmtl Plastic_Red
+newmtl Color_C05
 Ka 0.000000 0.000000 0.000000
-Kd 0.960784 0.494118 0.003922
-Ks 0.330000 0.330000 0.330000
-map_Kd zabradlie/Plastic_Red.jpg
-
-newmtl Color_M00
-Ka 0.000000 0.000000 0.000000
-Kd 1.000000 1.000000 1.000000
+Kd 1.000000 0.498039 0.000000
 Ks 0.330000 0.330000 0.330000
 
 newmtl Color_M09
