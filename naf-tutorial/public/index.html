@@ -24,7 +24,16 @@
 </head>
 
 <body>
-<a-scene score-counter networked-scene>
+<a-scene score-counter networked-scene="
+  serverURL: /;
+  app: myApp;
+  room: room1;
+  connectOnLoad: true;
+  onConnect: onConnect;
+  adapter: socketio;
+  audio: false;
+  debug: true;
+">
 
     <a-box height="2" width="5" depth="10"  position="-22.5 -1 34.5" color="grey" static-body></a-box>
     <a-box height="2" width="5" depth="10"  position="-24.5 -1.6 34.5" color="grey" static-body></a-box>
@@ -61,11 +70,13 @@
 
     <a-assets>
 
+        <!-- Avatar -->
         <template id="avatar-template">
             <a-entity class="avatar">
                 <a-sphere class="head"
                           color="#5985ff"
                           scale="0.45 0.5 0.4"
+                          random-color
                 ></a-sphere>
                 <a-entity class="face"
                           position="0 0.05 0"
@@ -95,6 +106,7 @@
                 </a-entity>
             </a-entity>
         </template>
+        
         <a-mixin id="cube" geometry="primitive: box"></a-mixin>
         <a-mixin id="cube-hovered" material="color: magenta"></a-mixin>
         <a-mixin id="cube-selected" material="color: cyan"></a-mixin>
@@ -106,14 +118,14 @@
     </a-assets>
 
     <a-assets>
-        <a-asset-item id="object" src="../public/assets/chair.obj"></a-asset-item>
-        <a-asset-item id="material" src="../public/assets/chair.mtl"></a-asset-item>
-        <a-asset-item id="object1" src="../public/assets/zabradlie.obj"></a-asset-item>
-        <a-asset-item id="material1" src="../public/assets/zabradlie.mtl"></a-asset-item>
-        <a-asset-item id="object2" src="../public/assets/zabradlie2.obj"></a-asset-item>
-        <a-asset-item id="material2" src="../public/assets/zabradlie2.mtl"></a-asset-item>
-        <a-asset-item id="testo" src="../public/assets/test.obj"></a-asset-item>
-        <a-asset-item id="testm" src="../public/assets/test.mtl"></a-asset-item>
+        <a-asset-item id="object" src="assets/chair.obj"></a-asset-item>
+        <a-asset-item id="material" src="assets/chair.mtl"></a-asset-item>
+        <a-asset-item id="object1" src="assets/zabradlie.obj"></a-asset-item>
+        <a-asset-item id="material1" src="assets/zabradlie.mtl"></a-asset-item>
+        <a-asset-item id="object2" src="assets/zabradlie2.obj"></a-asset-item>
+        <a-asset-item id="material2" src="assets/zabradlie2.mtl"></a-asset-item>
+        <a-asset-item id="testo" src="assets/test.obj"></a-asset-item>
+        <a-asset-item id="testm" src="assets/test.mtl"></a-asset-item>
     </a-assets>
 
     <a-obj-model src="#testo" mtl="#testm" position="0 0 7"></a-obj-model>
@@ -160,7 +172,9 @@
     <a-box height="10" width="30" position="-36 -3.1 29.6" visible="false" static-body></a-box>
     <a-box height="2" depth="15" width="15" color="grey" position="-18.833 -3.157 22.966"></a-box>
 
-    <a-entity position="-204.5 7 16">
+
+    <!--   Game    -->
+    <a-entity position="-409.5 6 16">
         <a-triangle mixin="triangle red"
                     rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                     animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
@@ -173,48 +187,35 @@
         </a-triangle>
     </a-entity>
 
-
-    <a-entity position="-185 7 16">
-
+    <a-entity position="-390 6 16">
         <a-cylinder  mixin="cylinder green"
                      rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                      animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
-
-            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
         </a-cylinder>
     </a-entity>
 
-    <a-entity position="13 7 -190">
+    <a-entity position="13 6 -190">
         <a-sphere mixin="sphere blue"
                   rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                   animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
-            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
         </a-sphere>
     </a-entity>
-    <a-entity position="3 7 -27">
+    <a-entity position="3 6 -27">
         <a-plane mixin="plane yellow"
                  rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
-                 animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
-        >
-            <!--        <a-animation begin="click" attribute="position" from="0 0 0"-->
-            <!--                     to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-            <!--        <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-            <!--                     easing="linear" dur="2000" fill="backwards"></a-animation>-->
+                 animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
         </a-plane>
     </a-entity>
+
+
+
     <a-sky color="#2539C0"></a-sky>
 
-    <a-plane static-body position="0 0 -55" rotation="-90 0 0" width="40" height="280"
+    <a-plane static-body position="0 0 -63.911" rotation="-90 0 0" width="40" height="300"
              color="#485053"></a-plane>
-    <a-plane static-body position="-100 0 60" rotation="-90 0 0" width="220" height="40"
+    <a-plane static-body position="-219.13 0 60" rotation="-90 0 0" width="400" height="40"
              color="#485053"></a-plane>
-    <a-plane static-body position="-200 0 30" rotation="-90 0 0" width="50" height="50"
+    <a-plane static-body position="-393.54 0 30" rotation="-90 0 0" width="50" height="50"
              color="#485053"></a-plane>
 
     <a-box static-body position="-21 6.5 -7" rotation="0 90 0" radius="2" height="16" width="45"
@@ -275,11 +276,11 @@
 <!--           color="#767676"></a-box>-->
 <!--    <a-box position="-175 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
 <!--           color="#767676"></a-box>-->
-    <a-box position="-191 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
+    <a-box position="-396 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
            color="#767676"></a-box>
-    <a-box position="-207 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
+    <a-box position="-412 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
            color="#767676"></a-box>
-    <a-box position="-210.1 6.5 43.5" rotation="0 90 0" radius="2" height="16" width="16" static-body
+    <a-box position="-415.1 6.5 43.5" rotation="0 90 0" radius="2" height="16" width="16" static-body
            color="#767676"></a-box>
 
 
@@ -310,7 +311,8 @@
     <a-box static-body position="6 6.5 -188" rotation="0 90 0" radius="2" height="16" width="8"
            color="#4E3612"></a-box>
 
-
+    <a-box static-body position="6 6.5 -208" rotation="0 90 0" radius="2" height="16" width="8"
+           color="#4E3612"></a-box>
 
 
 
@@ -335,6 +337,9 @@
            color="#4E3612"></a-box>
 
     <a-box static-body position="20 6.5 -188" rotation="0 90 0" radius="2" height="16" width="8"
+           color="#4E3612"></a-box>
+
+    <a-box static-body position="20 6.5 -208" rotation="0 90 0" radius="2" height="16" width="8"
            color="#4E3612"></a-box>
 
 
@@ -376,101 +381,184 @@
 
     <a-box color="#3B342A" position="5.6 6.75 -48.5" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-box>
 
-    <a-image id="my-image" src="../public/img/monitor-stena.jpg" position="-7.3 6.5 -28.4" width="25" height="16" static-body></a-image>
-    <a-image id="my-image2" src="../public/img/monitor.jpg" position="-6.8 6.75 -27.9" width="20" height="10" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/spodok okien.jpg" position="-20 2.5 -7" rotation="0 90 0" height="5" width="45" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/boky1.jpg" position="-19.8 6.5 -25.5" rotation="0 90 0" height="16" width="8" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/boky1.jpg" position="-19.8 6.5 12" rotation="0 90 0" height="16" width="6" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/stlpy.jpg" position="-19.8 6.5 8.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/stlpy.jpg" position="-19.8 6.5 1" rotation="0 90 0" height="16" width="1" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/stlpy.jpg" position="-19.8 6.5 -6.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/stlpy.jpg" position="-19.8 6.5 -14" rotation="0 90 0" height="16" width="1" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-20.3 9.5 -18.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-20.3 9.5 -10.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-20.3 9.5 -2.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-20.3 9.5 5" rotation="0 90 0" height="10" width="7" static-body></a-image>
-    <a-image id="my-image" src="../public/img/displaye.jpg" position="4.9 6.5 -6" rotation="0 270 0" width="45" height="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/display1.jpg" position="3.9 6.75 -22.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
-    <a-image id="my-image" src="../public/img/display2.jpg" position="3.9 6.75 -10.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
-    <a-image id="my-image" src="../public/img/display3.jpg" position="3.9 6.75 2" rotation="0 270 0" width="6" height="7" static-body></a-image>
-    <a-image id="my-image" src="../public/img/display4.jpg" position="3.9 6.75 13.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
-    <a-image id="my-image" src="../public/img/lava stena blok A.jpg" position="6.1 6.5 -6" rotation="0 90 0" width="45" height="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dreveny stlp.jpg" position="5.5 6.5 16.55" rotation="0 0 0" width="1.25" height="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/monitor5.jpg" position="0 6.75 39.5" rotation="0 225 0" width="20" height="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/new-monitor.jpg" position="0.403 8.393 38.608" radius="1" height="8" width="15" rotation="0 225 0" static-body></a-image>
-    <a-image id="my-image" src="../public/img/T-Systems.jpg" position="0 6.75 53.65" radius="1" height="16" width="20" rotation="0 315 0" static-body></a-image>
-    <a-image id="my-image" src="../public/img/zadna strana.jpg" position="10 6.75 46.5" rotation="0 90 0" radius="1" height="16" width="28.5" static-body></a-image>
-    <a-image id="my-image" src="../public/img/bok.jpg" position="8.5 6.75 60.75" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
-    <a-image id="my-image" src="../public/img/bok.jpg" position="8.5 6.75 32.35" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dvere0.jpg" position="20 6.75 65" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dvere0.jpg" position="20 6.75 40" rotation="0 270 0" radius="1" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dvere1.jpg" position="20 6.75 -32.5" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dvere2.jpg" position="5.1 6.75 -40.5" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/dvere3.jpg" position="8 6.75 -52.5" rotation="0 0 0" radius="1" height="16" width="4" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door4.jpg" position="5.5 6.5 -58" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/electricity.jpg" position="5.5 6.5 -78" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door5.jpg" position="5.5 6.5 -98" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door6.jpg" position="5.5 6.5 -118" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/wall.jpg" position="5.5 6.5 -138" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door6.jpg" position="5.5 6.5 -158" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door5.jpg" position="5.5 6.5 -178" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/automatic.jpg" position="13 6.5 -192" rotation="0 0 0" radius="1" height="16" width="14" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door7.jpg" position="20.5 6.5 -58" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door6.jpg" position="20.5 6.5 -78" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door8.jpg" position="20.5 6.5 -98" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door6.jpg" position="20.5 6.5 -118" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door5.jpg" position="20.5 6.5 -138" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door8.jpg" position="20.5 6.5 -158" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door7.jpg" position="20.5 6.5 -178" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door9.jpg" position="15.5 6.5 83.9" rotation="0 0 0" radius="2" height="16" width="10" static-body ></a-image>
-    <a-image id="my-image" src="../public/img/door10.jpg" position="2 6.5 83.9" rotation="0 0 0" radius="2" height="16" width="10" static-body ></a-image>
-    <a-image id="my-image" src="../public/img/wcm.jpg" position="-8 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
-    <a-image id="my-image" src="../public/img/wcw.jpg" position="-15 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
-    <a-image id="my-image" src="../public/img/paternoster.jpg" position="-19 6.5 76.5" rotation="0 90 0" radius="2" height="16" width="16" static-body ></a-image>
+    <a-assets>
+        <img id="my-image" src="img/monitor-stena.jpg" alt="my-image">
+        <img id="my-image0" src="img/monitor.jpg" alt="my-image">
+        <img id="my-image1" src="img/spodok%20okien.jpg" alt="my-image">
+        <img id="my-image2" src="img/boky1.jpg" alt="my-image">
+        <img id="my-image3" src="img/boky1.jpg" alt="my-image">
+        <img id="my-image4" src="img/stlpy.jpg" alt="my-image">
+        <img id="my-image5" src="img/stlpy.jpg" alt="my-image">
+        <img id="my-image6" src="img/stlpy.jpg" alt="my-image">
+        <img id="my-image7" src="img/stlpy.jpg" alt="my-image">
+        <img id="my-image8" src="img/okno.jpg" alt="my-image">
+        <img id="my-image9" src="img/okno.jpg" alt="my-image">
+        <img id="my-image10" src="img/okno.jpg" alt="my-image">
+        <img id="my-image11" src="img/okno.jpg" alt="my-image">
+        <img id="my-image12" src="img/displaye.jpg" alt="my-image">
+        <img id="my-image13" src="img/display1.jpg" alt="my-image">
+        <img id="my-image14" src="img/display2.jpg" alt="my-image">
+        <img id="my-image15" src="img/display3.jpg" alt="my-image">
+        <img id="my-image16" src="img/display4.jpg" alt="my-image">
+        <img id="my-image17" src="img/lava%20stena%20blok%20A.jpg" alt="my-image">
+        <img id="my-image18" src="img/dreveny%20stlp.jpg" alt="my-image">
+        <img id="my-image19" src="img/Monitor5(1).jpg" alt="my-image">
+        <img id="my-image20" src="img/new-monitor.jpg" alt="my-image">
+        <img id="my-image21" src="img/T-Systems.jpg" alt="my-image">
+        <img id="my-image22" src="img/zadna%20strana.jpg" alt="my-image">
+        <img id="my-image23" src="img/bok.jpg" alt="my-image">
+        <img id="my-image24" src="img/bok.jpg" alt="my-image">
+        <img id="my-image25" src="img/dvere0.jpg" alt="my-image">
+        <img id="my-image26" src="img/dvere0.jpg" alt="my-image">
+        <img id="my-image27" src="img/dvere1.jpg" alt="my-image">
+        <img id="my-image28" src="img/dvere2.jpg" alt="my-image">
+        <img id="my-image29" src="img/dvere3.jpg" alt="my-image">
+        <img id="my-image30" src="img/door4.jpg" alt="my-image">
+        <img id="my-image31" src="img/electricity.jpg" alt="my-image">
+        <img id="my-image32" src="img/door5.jpg" alt="my-image">
+        <img id="my-image33" src="img/door6.jpg" alt="my-image">
+        <img id="my-image34" src="img/wall.jpg" alt="my-image">
+        <img id="my-image35" src="img/door6.jpg" alt="my-image">
+        <img id="my-image36" src="img/wall.jpg" alt="my-image">
+        <img id="my-image37" src="img/door5.jpg" alt="my-image">
+        <img id="my-image38" src="img/automatic.jpg" alt="my-image">
+        <img id="my-image39" src="img/door7.jpg" alt="my-image">
+        <img id="my-image40" src="img/door6.jpg" alt="my-image">
+        <img id="my-image41" src="img/door8.jpg" alt="my-image">
+        <img id="my-image42" src="img/door6.jpg" alt="my-image">
+        <img id="my-image43" src="img/door5.jpg" alt="my-image">
+        <img id="my-image44" src="img/door8.jpg" alt="my-image">
+        <img id="my-image45" src="img/door7.jpg" alt="my-image">
+        <img id="my-image46" src="img/door7.jpg" alt="my-image">
+        <img id="my-image47" src="img/door9.jpg" alt="my-image">
+        <img id="my-image48" src="img/door10.jpg" alt="my-image">
+        <img id="my-image49" src="img/wcm.jpg" alt="my-image">
+        <img id="my-image50" src="img/wcw.jpg" alt="my-image">
+        <img id="my-image51" src="img/paternoster.jpg" alt="my-image">
+        <img id="my-image52" src="img/central.jpg" alt="my-image">
+        <img id="my-image53" src="img/automatic1.jpg" alt="my-image">
+        <img id="my-image54" src="img/enter-door.jpg" alt="my-image">
+        <img id="my-image55" src="img/door13.jpg" alt="my-image">
+        <img id="my-image56" src="img/door13.jpg" alt="my-image">
+        <img id="my-image57" src="img/door14.jpg" alt="my-image">
+        <img id="my-image58" src="img/elevator.jpg" alt="my-image">
+        <img id="my-image59" src="img/wc.jpg" alt="my-image">
+        <img id="my-image60" src="img/window.jpg" alt="my-image">
+        <img id="my-image61" src="img/windows1.jpg" alt="my-image">
+        <img id="my-image62" src="img/win-door.jpg" alt="my-image">
+        <img id="my-image63" src="img/windows1.jpg" alt="my-image">
+        <img id="my-image64" src="img/window.jpg" alt="my-image">
+        <img id="my-image65" src="img/exit-door.jpg" alt="my-image">
+        <img id="my-image66" src="img/prezentacia.jpg" alt="my-image">
+        <img id="my-image67" src="img/okno.jpg" alt="my-image">
+        <img id="my-image68" src="img/okno.jpg" alt="my-image">
+        <img id="my-image69" src="img/okno.jpg" alt="my-image">
+        <img id="my-image70" src="img/okno.jpg" alt="my-image">
+        <img id="my-image71" src="img/napravo.jpg" alt="my-image">
+        <img id="my-image72" src="img/4-poschodie.jpg" alt="my-image">
+
+
+
+    </a-assets>
+
+    <a-image src="#my-image"  position="-7.3 6.5 -28.4" width="25" height="16" static-body></a-image>
+    <a-image src="#my-image0" position="-6.8 6.75 -27.9" width="20" height="10" static-body></a-image>
+    <a-image src="#my-image1" position="-20 2.5 -7" rotation="0 90 0" height="5" width="45" static-body></a-image>
+    <a-image src="#my-image2"  position="-19.8 6.5 -25.5" rotation="0 90 0" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image3"  position="-19.8 6.5 12" rotation="0 90 0" height="16" width="6" static-body></a-image>
+    <a-image src="#my-image4"  position="-19.8 6.5 8.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image src="#my-image5"  position="-19.8 6.5 1" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image src="#my-image6" position="-19.8 6.5 -6.5" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image src="#my-image7"  position="-19.8 6.5 -14" rotation="0 90 0" height="16" width="1" static-body></a-image>
+    <a-image src="#my-image8" position="-20.3 9.5 -18.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image9"  position="-20.3 9.5 -10.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image10"  position="-20.3 9.5 -2.5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-20.3 9.5 5" rotation="0 90 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image12" position="4.9 6.5 -6" rotation="0 270 0" width="45" height="16" static-body></a-image>
+    <a-image src="#my-image13" position="3.9 6.75 -22.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image src="#my-image14" position="3.9 6.75 -10.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image src="#my-image15" position="3.9 6.75 2" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image src="#my-image16"  position="3.9 6.75 13.25" rotation="0 270 0" width="6" height="7" static-body></a-image>
+    <a-image src="#my-image17"  position="6.1 6.5 -6" rotation="0 90 0" width="45" height="16" static-body></a-image>
+    <a-image src="#my-image18"  position="5.5 6.5 16.55" rotation="0 0 0" width="1.25" height="16" static-body></a-image>
+    <a-image src="#my-image19"  position="0 6.75 39.5" rotation="0 225 0" width="20" height="16" static-body></a-image>
+    <a-image src="#my-image20"  position="0.403 8.393 38.608" radius="1" height="8" width="15" rotation="0 225 0" static-body></a-image>
+    <a-image src="#my-image21"  position="0 6.75 53.65" radius="1" height="16" width="20" rotation="0 315 0" static-body></a-image>
+    <a-image src="#my-image22" position="10 6.75 46.5" rotation="0 90 0" radius="1" height="16" width="28.5" static-body></a-image>
+    <a-image src="#my-image23"  position="8.5 6.75 60.75" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
+    <a-image src="#my-image24"  position="8.5 6.75 32.35" rotation="0 0 0" radius="1" height="16" width="3" static-body></a-image>
+    <a-image src="#my-image25"  position="20 6.75 65" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image26"  position="20 6.75 40" rotation="0 270 0" radius="1" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image27"  position="20 6.75 -32.5" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image28"  position="5.1 6.75 -40.5" rotation="0 90 0" radius="1" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image29"  position="8 6.75 -52.5" rotation="0 0 0" radius="1" height="16" width="4" static-body></a-image>
+    <a-image src="#my-image30"  position="5.5 6.5 -58" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image31"  position="5.5 6.5 -78" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image32"  position="5.5 6.5 -98" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image33"  position="5.5 6.5 -118" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image34"  position="5.5 6.5 -138" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image35"  position="5.5 6.5 -158" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image36" position="5.5 6.5 -178" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image37"  position="5.5 6.5 -198" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image38"  position="13 7.372 -211.82" rotation="0 0 0" radius="1" height="14.5" width="14" static-body></a-image>
+    <a-image src="#my-image39"  position="20.5 6.5 -58" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image40"  position="20.5 6.5 -78" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image41" position="20.5 6.5 -98" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image42"  position="20.5 6.5 -118" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image43" position="20.5 6.5 -138" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image44"  position="20.5 6.5 -158" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image45" position="20.5 6.5 -178" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image46"  position="20.5 6.5 -198" rotation="0 90 0" radius="1" height="16" width="12" static-body></a-image>
+    <a-image src="#my-image47"  position="15.5 6.5 83.9" rotation="0 0 0" radius="2" height="16" width="10" static-body ></a-image>
+    <a-image src="#my-image48"  position="2 6.5 83.9" rotation="0 0 0" radius="2" height="16" width="10" static-body ></a-image>
+    <a-image src="#my-image49"  position="-8 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
+    <a-image src="#my-image50"  position="-15 6.5 85.5" rotation="0 0 0" radius="2" height="16" width="6" static-body ></a-image>
+    <a-image src="#my-image51"  position="-19 6.5 76.5" rotation="0 90 0" radius="2" height="16" width="16" static-body ></a-image>
     <!--    <a-image id="my-image" src="schody.jpg" position="-19.9 6.5 27.5" rotation="0 90 0" radius="2" height="16" width="25" static-body ></a-image>-->
     <!--    <a-image id="my-image" src="zabradle.jpg" position="-32.4 6.5 40" rotation="0 0 0" radius="2" height="16" width="25" static-body ></a-image>-->
-    <a-image id="my-image" src="../public/img/central.jpg" position="-31.5 8 66.4" rotation="0 180 0"  radius="2" height="12" width="18" static-body ></a-image>
-    <a-image id="my-image" src="../public/img/automatic.jpg" position="-48.4 6.5 43" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-55 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-71 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-87 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-103 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-119 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-135 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-151 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door11.jpg" position="-167 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-55 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-71 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-87 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-103 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-119 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-135 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-151 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image id="my-image" src="../public/img/door12.jpg" position="-167 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
-    <a-image id="my-image" src="../public/img/enter-door.jpg" position="-179 6.5 65" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door13.jpg" position="-183 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door13.jpg" position="-199 6.5 68.4" rotation="0 180 0" radius="2" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/door14.jpg" position="-210.5 6.5 59.5" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/elevator.jpg" position="-210.1 6.5 30" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
-    <a-image id="my-image" src="../public/img/wc.jpg" position="-210.1 6.5 18" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
-    <a-image id="my-image" src="../public/img/window.jpg" position="-204.5 6.5 14" rotation="0 180 0" radius="2" height="16" width="11" static-body></a-image>
-    <a-image id="my-image" src="../public/img/windows1.jpg" position="-199 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
-    <a-image id="my-image" src="../public/img/win-door.jpg" position="-194.5 6.5 45" rotation="0 180 0" radius="2" height="16" width="10" static-body></a-image>
-    <a-image id="my-image" src="../public/img/windows1.jpg" position="-190 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
-    <a-image id="my-image" src="../public/img/window.jpg" position="-185 6.5 14" rotation="0 180 0" radius="2" height="16" width="11" static-body></a-image>
-    <a-image id="my-image" src="../public/img/exit-door.jpg" position="-180 6.5 24" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
-    <a-image id="my-image" src="../public/img/prezentacia.jpg" position="-56.9 5.3 26.98" rotation="0 90 0" radius="2" height="16" width="20" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-52.211 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-43.401 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-34.674 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/okno.jpg" position="-25.954 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/napravo.jpg" position="-28.194 -10.945 28.787" rotation="0 0 0" height="15" width="20" static-body></a-image>
-    <a-image id="my-image3" src="../public/img/4-poschodie.jpg" position="-26.074 -6.67 21.634" rotation="0 270 90" height="12" width="9" static-body></a-image>
+    <a-image src="#my-image52"  position="-31.5 8 66.4" rotation="0 180 0"  radius="2" height="12" width="18" static-body ></a-image>
+    <a-image src="#my-image53"  position="-43.991 6.5 64.426" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-55 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-71 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-87 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-103 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-119 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-135 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-151 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door11.jpg" position="-167 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-55 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-71 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-87 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-103 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-119 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-135 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-151 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+<!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-167 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+    <a-image src="#my-image54"  position="-384 6.5 65" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image55"  position="-388 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image56"  position="-409 6.5 68.4" rotation="0 180 0" radius="2" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image57"  position="-415.5 6.5 59.5" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
+    <a-image src="#my-image58"  position="-415.1 6.5 30" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
+    <a-image src="#my-image59"  position="-415.1 6.5 18" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>
+    <a-image src="#my-image60"  position="-409.57 6.5 14" rotation="0 180 0" radius="2" height="16" width="11" static-body></a-image>
+    <a-image src="#my-image61"  position="-404 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
+    <a-image src="#my-image62"  position="-399.5 6.5 45" rotation="0 180 0" radius="2" height="16" width="10" static-body></a-image>
+    <a-image src="#my-image63"  position="-395 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
+    <a-image src="#my-image64"  position="-390 7.293 14" rotation="0 180 0" radius="2" height="15" width="11" static-body></a-image>
+    <a-image src="#my-image65"  position="-385 6.5 24" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
+    <a-image src="#my-image66"  position="-56.9 5.3 26.98" rotation="0 90 0" radius="2" height="16" width="20" static-body></a-image>
+    <a-image src="#my-image67"  position="-52.211 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
+    <a-image src="#my-image68" position="-43.401 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
+    <a-image src="#my-image69"  position="-34.674 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
+    <a-image src="#my-image70"  position="-25.954 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
+    <a-image src="#my-image71"  position="-28.194 -10.945 28.787" rotation="0 0 0" height="15" width="20" static-body></a-image>
+    <a-image src="#my-image72" position="-26.489 -5.498 21.497" rotation="0 270 90" height="14" width="11" static-body></a-image>
 
 
     <!--    Ovladanie pre pocitace-->
+    <!--    Player   -->
     <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false" mouse-based cursor tracked-controls look-controls raycaster crawling-cursor>
-        <a-entity camera position="0 7 0" >
+        <a-entity camera position="0 6 0" >
             <a-text id="score" text="value: Objects: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
@@ -479,18 +567,8 @@
                       animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.2 0.2 0.2; to: 1 1 1"
                       animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.2 0.2 0.2"
                       animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
-                <!--                      animation="begin: click; easing: easeInCirc; attribute: scale;-->
-                <!--            fill: forwards; from: 0.2 0.2 0.2; to: 1 1 1; dur: 150;"-->
-                <!--                      animation__2="begin: fusing; easing: ease-in; attribute: scale;-->
-                <!--                      " >-->
-                <!--              <a-animation begin="click"; easing="ease-in" attribute="scale"-->
-                <!--                             fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>-->
-                <!--                <a-animation begin="fusing" easing="ease-in" attribute="scale"-->
-                <!--                             fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>-->
             </a-entity>
-
         </a-entity>
-
     </a-entity>
 
 
