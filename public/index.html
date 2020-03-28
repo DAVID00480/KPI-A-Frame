@@ -657,7 +657,7 @@
 
     <!--    Ovladanie pre pocitace-->
     <!--    Player   -->
-    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls raycaster crawling-cursor>
+    <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls >
         <a-entity camera="twoway-motion: speed: 35" position="0 6 0" >
             <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
