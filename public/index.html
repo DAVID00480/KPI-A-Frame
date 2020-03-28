@@ -17,6 +17,7 @@
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
     <script src="js/index.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/index.css"/>
 
@@ -657,7 +658,7 @@
     <!--    Ovladanie pre pocitace-->
     <!--    Player   -->
     <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls raycaster crawling-cursor>
-        <a-entity camera position="0 6 0" >
+        <a-entity camera="twoway-motion: speed: 35" position="0 6 0" >
             <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
