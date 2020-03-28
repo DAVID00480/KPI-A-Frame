@@ -66,8 +66,15 @@
     <a-box height="28" width="20" depth="0" rotation="0 0 0" position="-49.7 0.5 39" color="grey" static-body></a-box>
     <a-box height="28" width="50" depth="0" rotation="0 0 0" position="-44.75 0.5 15.5" color="grey" static-body></a-box>
     <a-box height="28" width="20" depth="0" rotation="0 0 0" position="-39 0.5 40" color="grey" static-body></a-box>
+    <a-box height="28" width="85" depth="0" rotation="0 0 0" position="-77.507 0.5 42.365" color="#4E3612" static-body></a-box>
 
-
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-145 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-185 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-225 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-265 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-305 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-345 0.5 42.365" color="#4E3612" static-body></a-box>
+    <a-box height="28" width="75" depth="0" rotation="0 0 0" position="-406.87 0.5 42.365" color="#4E3612" static-body></a-box>
     <a-assets>
 
         <!-- Avatar -->
@@ -122,11 +129,8 @@
         <a-asset-item id="material1" src="assets/zabradlie.mtl"></a-asset-item>
         <a-asset-item id="object2" src="assets/zabradlie2.obj"></a-asset-item>
         <a-asset-item id="material2" src="assets/zabradlie2.mtl"></a-asset-item>
-        <a-asset-item id="testo" src="assets/test.obj"></a-asset-item>
-        <a-asset-item id="testm" src="assets/test.mtl"></a-asset-item>
     </a-assets>
 
-    <a-obj-model src="#testo" mtl="#testm" position="0 0 7"></a-obj-model>
 
 
     <a-obj-model src="#object" mtl="#material" scale="0.05 0.07 0.05" position="-3 -0.5 -0.5" static-body></a-obj-model>
@@ -173,33 +177,29 @@
 
     <!--   Game    -->
     <a-entity position="-469.5 6 16">
-        <a-triangle mixin="triangle red"
+        <a-triangle mixin="cube red"
                     rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                     animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
         >
-            <!--            <a-animation begin="click" attribute="position" from="0 0 0"-->
-            <!--                         to="0 -10 0" dur="2000" fill="both" loop="false"></a-animation>-->
-            <!--            <a-animation begin="click" attribute="rotation" to="0 360 0"-->
-            <!--                         easing="linear" dur="2000" fill="backwards"></a-animation>-->
 
         </a-triangle>
     </a-entity>
 
     <a-entity position="-450 6 16">
-        <a-cylinder  mixin="cylinder green"
+        <a-sky  mixin="cube green"
                      rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                      animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
-        </a-cylinder>
+        </a-sky>
     </a-entity>
 
     <a-entity position="13 6 -190">
-        <a-sphere mixin="sphere blue"
+        <a-sphere mixin="cube blue"
                   rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                   animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
         </a-sphere>
     </a-entity>
     <a-entity position="3 6 -27">
-        <a-plane mixin="plane yellow"
+        <a-plane mixin="cube yellow"
                  rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                  animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
         </a-plane>
@@ -235,27 +235,28 @@
            color="#767676"></a-box>
 
     <!--    L9B -->
-    <a-box position="-51.754 6.5 68" rotation="0 0 0" radius="2" height="16" width="25" color="#767676" static-body></a-box>
-    <a-box position="-80 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-245.84 6.5 137.37" rotation="0 0 0" radius="2" height="16" width="380" color="#767676" static-body></a-box>
-    <a-box position="-100 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-120 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-140 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-160 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-180 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-200 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-220 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-240 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-260 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-280 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-300 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-320 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-340 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-360 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-380 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-400 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-420 6.5 68" rotation="0 0 0" radius="2" height="16" width="7.5" color="#767676" static-body></a-box>
-    <a-box position="-430 6.5 68" rotation="0 0 0" radius="2" height="16" width="27.5" color="#767676" static-body></a-box>
+    <a-box position="-51.754 6.5 68" rotation="0 0 0" radius="2" height="16" width="33" color="#4E3612" static-body></a-box>
+    <a-box position="-82 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-245.84 6.5 137.37" rotation="0 0 0" radius="2" height="16" width="380" color="grey" static-body></a-box>
+    <a-box position="-102 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-122 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-142 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-162 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-182 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-202 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-222 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-242 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-262 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-282 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-302 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-322 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-342 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-362 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-382 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-402 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-422 6.5 68" rotation="0 0 0" radius="2" height="16" width="12" color="#4E3612" static-body></a-box>
+    <a-box position="-432 6.5 68" rotation="0 0 0" radius="2" height="16" width="27.5" color="#4E3612" static-body></a-box>
+
 
     <a-box position="-56.572 6.5 102.88" rotation="0 90 0" radius="2" height="16" width="70" color="#767676" static-body></a-box>
     <a-box position="-76.572 6.5 102.88" rotation="0 90 0" radius="2" height="16" width="70" color="#767676" static-body></a-box>
@@ -276,45 +277,103 @@
     <a-box position="-376.572 6.5 102.88" rotation="0 90 0" radius="2" height="16" width="70" color="#767676" static-body></a-box>
     <a-box position="-396.572 6.5 102.88" rotation="0 90 0" radius="2" height="16" width="70" color="#767676" static-body></a-box>
     <a-box position="-416.572 6.5 102.88" rotation="0 90 0" radius="2" height="16" width="70" color="#767676" static-body></a-box>
-<!--    <a-box position="-48.4 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-47 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-63 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-79 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-95 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-111 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-127 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-143 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-159 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-175 6.5 40" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
 
-<!--    <a-box position="-47 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-63 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-79 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-95 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-111 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-127 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-143 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-159 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
-<!--    <a-box position="-175 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body-->
-<!--           color="#767676"></a-box>-->
+    <a-assets>
+        <img id="texture" src="img/door11.jpg" alt="door">
+    </a-assets>
+
+   <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-76.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+   </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-96.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-116.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-136.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-156.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-176.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-196.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-216.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-236.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-256.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-276.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-296.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-316.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-336.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-356.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-376.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-396.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+    <a-box src="#texture" animation__click="property: rotation; to: 0 90 0;startEvents: click; loop: false; dur:2000;" position="-416.55 6.5 67.999" rotation="0 0 0" radius="2" height="16" width="17" depth="0.8" static-body>
+    </a-box>
+
+
+    <a-image src="#my-image33"  position="-124.63 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="11.5" static-body></a-image>
+    <a-image src="#my-image44"  position="-164.99 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="10" static-body></a-image>
+    <a-image src="#my-image33"  position="-204.63 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="11.5" static-body></a-image>
+    <a-image src="#my-image44"  position="-244.99 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="10" static-body></a-image>
+    <a-image src="#my-image44"  position="-284.99 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="10" static-body></a-image>
+    <a-image src="#my-image33"  position="-324.63 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="11.5" static-body></a-image>
+
+    <a-image src="#my-image11"  position="-62.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-82.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-102.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-122.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-142.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-162.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-182.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-202.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-222.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-242.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-262.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-282.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-302.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-322.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-342.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-362.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-382.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-402.2 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+
+
+    <a-image src="#my-image11"  position="-70.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-90.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-110.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-130.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-150.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-170.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-190.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-210.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-230.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-250.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-270.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-290.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-310.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-330.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-350.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-370.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-390.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+    <a-image src="#my-image11"  position="-410.6 7.284 136.75" rotation="0 0 0" height="10" width="7" static-body></a-image>
+
+    <a-assets>
+        <img id="my-image73" src="img/door12.jpg" alt="my-image">
+    </a-assets>
+
+    <a-image src="#my-image73"  position="-364.99 6.5 41.94" rotation="0 0 0" radius="1" height="16" width="10" static-body></a-image>
+
+
+
     <a-box position="-456 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
            color="#767676"></a-box>
     <a-box position="-472 6.5 68" rotation="0 0 0" radius="2" height="16" width="8" static-body
@@ -585,7 +644,7 @@
     <a-image src="#my-image62"  position="-459.5 6.5 45" rotation="0 180 0" radius="2" height="16" width="10" static-body></a-image>
     <a-image src="#my-image63"  position="-455 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
     <a-image src="#my-image64"  position="-450 7.293 14" rotation="0 180 0" radius="2" height="15" width="11" static-body></a-image>
-    <a-image src="#my-image65"  position="-445 6.5 24" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>
+    <a-image src="#my-image65"  position="-445 6.5 28.329" rotation="0 270 0" radius="2" height="16" width="28" static-body></a-image>
     <a-image src="#my-image66"  position="-56.9 5.3 26.98" rotation="0 90 0" radius="2" height="16" width="20" static-body></a-image>
     <a-image src="#my-image67"  position="-52.211 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
     <a-image src="#my-image68" position="-43.401 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
@@ -599,7 +658,7 @@
     <!--    Player   -->
     <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false " mouse-based cursor tracked-controls look-controls raycaster crawling-cursor>
         <a-entity camera position="0 6 0" >
-            <a-text id="score" text="value: Objects: 0 of 4" position="0 2 -2.5"></a-text>
+            <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                       material="color: cyan; shader: flat"

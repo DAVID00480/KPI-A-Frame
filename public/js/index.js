@@ -43,8 +43,7 @@ AFRAME.registerComponent('score-counter', {
     init: function () {
         var sceneEl = document.querySelector('a-scene');
         var scoreBoard = document.querySelector('#score');
-
-        sceneEl.querySelector("a-triangle").addEventListener('click', () => {
+        sceneEl.querySelector("a-sky").addEventListener('click', () => {
             if(this.data.score === 3) {
                 scoreBoard.setAttribute('text','value',"You won !!!");
             }else {
@@ -53,7 +52,7 @@ AFRAME.registerComponent('score-counter', {
                 scoreBoard.setAttribute('text', 'value', newScore);
             }
         });
-        sceneEl.querySelector("a-cylinder").addEventListener('click', () => {
+        sceneEl.querySelector("a-triangle").addEventListener('click', () => {
             if(this.data.score === 3) {
                 scoreBoard.setAttribute('text','value',"You won !!!");
             }else {
