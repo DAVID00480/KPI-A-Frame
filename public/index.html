@@ -11,8 +11,6 @@
     <script src="https://cdn.rawgit.com/delapuente/aframe-sharedspace-component/master/dist/aframe-sharedspace-component.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-    <script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js"></script>
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
     <script src="js/index.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/index.css"/>
 
@@ -881,31 +879,6 @@
 
         </a-entity>
     </a-entity>
-    <script>
-        // On mobile remove elements that are resource heavy
-        var isMobile = AFRAME.utils.device.isMobile();
-
-        if (isMobile) {
-            var particles = document.getElementById('particles');
-            particles.parentNode.removeChild(particles);
-        }
-
-        // Define custom schema for syncing avatar color, set by random-color
-        NAF.schemas.add({
-            template: '#avatar-template',
-            components: [
-                'position',
-                'rotation',
-                {
-                    selector: '.head',
-                    component: 'material',
-                    property: 'color'
-                }
-            ]
-        });
-    </script>
-
-
 </a-scene>
 </body>
 </html>
