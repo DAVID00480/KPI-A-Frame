@@ -46,6 +46,9 @@
         <a-asset-item id="material6" src="assets/policka.mtl"></a-asset-item>
         <a-asset-item id="object7" src="assets/table2.obj"></a-asset-item>
         <a-asset-item id="material7" src="assets/table2.mtl"></a-asset-item>
+        <a-asset-item id="object8" src="assets/stolicka.obj"></a-asset-item>
+        <a-asset-item id="object9" src="assets/tabula.obj"></a-asset-item>
+        <a-asset-item id="material9" src="assets/tabula.mtl"></a-asset-item>
     </a-assets>
 
     <a-box height="2" width="5" depth="10"  position="-22.5 -1 34.5" color="grey" static-body></a-box>
@@ -81,6 +84,21 @@
     <a-box height="28" width="20" depth="0" rotation="0 0 0" position="-39 0.5 40" color="grey" static-body></a-box>
 
     <!--    CAPRICA -->
+    <a-assets>
+        <img id="texture1" src="img/door15.jpg" alt="door">
+    </a-assets>
+
+    <a-box src="#texture1" animation__click="property: rotation; to: 0 -90 0;startEvents: click; loop: false; dur:2000;" position="-157.021 6.5 42.267" rotation="0 0 0" radius="2" height="16" width="23" depth="0.8" static-body>
+    </a-box>
+
+    <a-obj-model src="#object9" mtl="#material9" scale="0.001 0.001 0.001" position="-70.5 148 -215" rotation="0 90 0" static-body></a-obj-model>
+    <a-box color="white" height="7" width="15" depth="0" rotation="0 90 0" position="-70.506 10.289 33.605" static-body></a-box>
+    <a-box color="white" height="9" width="15" depth="0" rotation="0 90 0" position="-70.264 8.257 10.551" static-body></a-box>
+    <a-obj-model src="#object9" mtl="#material9" scale="0.002 0.0013 0.001" position="-156.7 188 520" rotation="0 270 0" static-body></a-obj-model>
+    <a-box color="white" height="10" width="30" depth="0" rotation="0 90 0" position="-156.52 8.367 22.359" static-body></a-box>
+
+
+
     <a-box height="28" width="50" depth="0" rotation="0 90 0" position="-70.109 0.5 17.18" color="grey" static-body></a-box>
     <a-box height="28" width="50" depth="0" rotation="0 90 0" position="-156.93 0.5 17.18" color="grey" static-body></a-box>
     <a-box height="28" width="350" depth="0" rotation="0 0 0" position="-243.67 0.5 -6.488" color="grey" static-body></a-box>
@@ -113,6 +131,197 @@
     <a-obj-model src="#object7" mtl="#material7" scale="0.0001 0.0001 0.0001" position="-130.87 43 -168" rotation="0 90 0"  static-body></a-obj-model>
     <a-obj-model src="#object7" mtl="#material7" scale="0.0001 0.0001 0.0001" position="-142.87 43 -168" rotation="0 90 0"  static-body></a-obj-model>
     <a-obj-model src="#object7" mtl="#material7" scale="0.0001 0.0001 0.0001" position="-154.87 43 -168" rotation="0 90 0"  static-body></a-obj-model>
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-175.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-150.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-150.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-150.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-150.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-146.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-150.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-165.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-140.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-140.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-140.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-140.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-136.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-140.41 0.939 4.955" ></a-obj-model>
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-155.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-130.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-130.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-130.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-130.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-126.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-130.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-145.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-120.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-120.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-120.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-120.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-116.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-120.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-135.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-110.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-110.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-110.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-110.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-106.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-110.41 0.939 4.955" ></a-obj-model>
+
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-125.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-100.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-100.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-100.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-100.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-96.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-100.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-115.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-90.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-90.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-90.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-90.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-86.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-90.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-105.315 -3.792 -3.075" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-80.727 7.763 -3.125"></a-box>
+    <a-image src="#my-image75"  position="-80.746 7.888 -2.598" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-80.404 5.121 1.116"></a-box>
+    <a-image src="#my-image74"  position="-80.403 5.392 1.152" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-76.201 5.197 1.087" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-80.41 0.939 4.955" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-105.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-80.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-80.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-80.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-80.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-76.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-80.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-115.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-90.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-90.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-90.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-90.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-86.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-90.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-125.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-100.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-100.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-100.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-100.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-96.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-100.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-135.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-110.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-110.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-110.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-110.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-106.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-110.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-145.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-120.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-120.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-120.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-120.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-116.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-120.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-155.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-130.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-130.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-130.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-130.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-126.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-130.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-165.315 -3.792 13.359" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-140.727 7.763 13.329"></a-box>
+    <a-image src="#my-image75"  position="-140.746 7.888 13.855" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-140.404 5.121 16.311"></a-box>
+    <a-image src="#my-image74"  position="-140.403 5.392 16.256" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-136.201 5.197 16.122" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-140.41 0.939 18.917" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-105.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-80.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-80.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-80.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-80.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-76.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-80.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-115.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-90.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-90.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-90.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-90.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-86.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-90.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-125.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-100.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-100.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-100.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-100.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-96.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-100.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-135.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-110.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-110.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-110.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-110.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-106.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-110.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-145.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-120.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-120.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-120.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-120.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-116.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-120.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-obj-model src="#object5" mtl="#material5" scale="0.004 0.002 0.002" rotation="0 270 0" position="-155.315 -3.792 28.846" ></a-obj-model>
+    <a-box color="black" scale="1 1 1" depth="1" height="4" width="6" rotation="-15 0 0" position="-130.727 7.763 28.597"></a-box>
+    <a-image src="#my-image75"  position="-130.746 7.888 29.178" rotation="-15 0 0" height="4" width="5.88" static-body></a-image>
+    <a-box color="black" scale="1 1 1" depth="0.5" height="2" width="6.5" rotation="90 0 0" position="-130.404 5.121 31.713"></a-box>
+    <a-image src="#my-image74"  position="-130.403 5.392 31.675" rotation="270 0 0" height="2" width="6.5" static-body></a-image>
+    <a-obj-model color="black" scale="0.15 0.15 0.15" position="-126.201 5.197 31.470" rotation="0 0 0" src="assets/mouse.obj"></a-obj-model>
+    <a-obj-model src="#object8" color="black" scale="0.2 0.2 0.2" rotation="0 90 0" position="-130.41 0.939 34.147" ></a-obj-model>
+
+
+    <a-box height="28" width="15" depth="0" rotation="0 0 0" position="-163.961 0.5 42.365" color="#4E3612" static-body></a-box>
 
     <!--    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-145 0.5 42.365" color="#4E3612" static-body></a-box>-->
 <!--    <a-box height="28" width="30" depth="0" rotation="0 0 0" position="-185 0.5 42.365" color="#4E3612" static-body></a-box>-->
@@ -901,7 +1110,7 @@
     <!--    Ovladanie pre pocitace-->
     <!--    Player   -->
     <a-entity id="player" networked="template:#avatar-template;attachTemplateToLocal:false;" spawn-in-circle="radius:3;" kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls daydream-controls >
-        <a-entity camera="twoway-motion: speed: 35" position="0 7 0" >
+        <a-entity camera="twoway-motion: speed: 35" position="0 7.5 0" >
             <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
