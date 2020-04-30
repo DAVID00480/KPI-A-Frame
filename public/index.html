@@ -10,11 +10,10 @@
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.rawgit.com/delapuente/aframe-sharedspace-component/master/dist/aframe-sharedspace-component.min.js"></script>
     <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-mirror-component/dist/aframe-mirror-component.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script src="js/index.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/index.css"/>
-
-
 </head>
 
 <body>
@@ -149,8 +148,15 @@
         <a-asset-item id="material15" src="assets/stol1.mtl"></a-asset-item>
         <a-asset-item id="object16" src="assets/gauc.obj"></a-asset-item>
         <a-asset-item id="material16" src="assets/gauc.mtl"></a-asset-item>
+        <a-asset-item id="object17" src="assets/toilet.obj"></a-asset-item>
     </a-assets>
 
+<!--    <a-box id="anchor" position="0 8 -3" static-body></a-box>-->
+<!--    <a-box position="0 7 -3"-->
+<!--           dynamic-body-->
+<!--           spring="target: #anchor;-->
+<!--               damping: 0.25;-->
+<!--               stiffness: 25;"></a-box>-->
 
     <a-box height="2" width="5" depth="10"  position="-22.5 -1 34.5" color="grey" static-body></a-box>
     <a-box height="2" width="5" depth="10"  position="-24.5 -1.6 34.5" color="grey" static-body></a-box>
@@ -1095,7 +1101,7 @@
 
 
     <!--   Game    -->
-    <a-entity position="-499.5 6 16">
+    <a-entity position="-603 6 16">
         <a-triangle mixin="cube red"
                     rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                     animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards"
@@ -1104,7 +1110,7 @@
         </a-triangle>
     </a-entity>
 
-    <a-entity position="-480 6 16">
+    <a-entity position="-582 6 16">
         <a-sky  mixin="cube green"
                      rotation="0 0 0" animation__click="property: rotation; to: 0 360 0;startEvents: click; loop: true; dur:200; fill: both"
                      animation__click__2="property: object3D.position.y; to: -10; startEvents: click; dur:2000; fill: backwards">
@@ -1477,6 +1483,8 @@
 <!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-135 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
 <!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-151 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
 <!--    <a-image id="my-image" src="../public1/img/door12.jpg" position="-167 6.5 39.6" rotation="0 0 0" radius="2" height="16" width="8" static-body></a-image>-->
+
+    <!--  Cisco Lab  -->
     <a-box src="#my-image54"  position="-474 6.5 65" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-box>
 
     <a-box color="grey"  position="-478.197 6.5 68.4" rotation="0 0 0" radius="2" depth="1.5" height="16" width="8" static-body></a-box>
@@ -1640,15 +1648,78 @@
     <a-box src="#my-image55" animation__click="property: rotation; to: 0 -90 0;startEvents: click; loop: false; dur:2000;" position="-580.958 6.5 68.4" rotation="0 0 0" radius="2" height="16" width="16" static-body></a-box>
 
     <!--    <a-image src="#my-image56"  position="-494 6.5 68.4" rotation="0 180 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image src="#my-image57"  position="-505.5 6.5 59.5" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>-->
-<!--    <a-image src="#my-image58"  position="-505.1 6.5 30" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>-->
-<!--    <a-image src="#my-image59"  position="-505.1 6.5 18" rotation="0 90 0" radius="2" height="16" width="8" static-body></a-image>-->
-<!--    <a-image src="#my-image60"  position="-500.57 6.5 14" rotation="0 180 0" radius="2" height="16" width="11" static-body></a-image>-->
-<!--    <a-image src="#my-image61"  position="-494 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>-->
-<!--    <a-image src="#my-image62"  position="-489.5 6.5 45" rotation="0 180 0" radius="2" height="16" width="10" static-body></a-image>-->
-<!--    <a-image src="#my-image63"  position="-485 6.5 29" rotation="0 270 0" radius="2" height="16" width="32" static-body></a-image>-->
-<!--    <a-image src="#my-image64"  position="-480 7.293 14" rotation="0 180 0" radius="2" height="15" width="11" static-body></a-image>-->
-<!--    <a-image src="#my-image65"  position="-475 6.5 28.329" rotation="0 270 0" radius="2" height="16" width="28" static-body></a-image>-->
+    <a-image src="#my-image57"  position="-609.011 6.5 59.819" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
+    <a-box color="grey"  position="-608.787  6.5 44.532" rotation="0 90 0" radius="2" depth="1.5" height="16" width="15" static-body></a-box>
+    <a-plane static-body position="-574.468 0 19.540" rotation="-90 0 0" width="250" height="150"
+             color="#485053"></a-plane>
+    <a-image src="#my-image58"  position="-609.295 6.536 30.567" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
+    <a-image src="#my-image58"  position="-609.298 6.536 14.59" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-image>
+    <a-box color="grey"  position="-608.787  6.5 3.596" rotation="0 90 0" radius="2" depth="1.5" height="16" width="15" static-body></a-box>
+
+    <a-box src="#my-image59" animation__click="property: rotation; to: 0 180 0;startEvents: click; loop: false; dur:2000;" position="-608.851 6.5 -11.867" rotation="0 90 0" radius="2" height="16" width="16" static-body></a-box>
+    <a-box color="grey"  position="-608.787  6.5 -19.162" rotation="0 90 0" radius="2" depth="1.5" height="16" width="15" static-body></a-box>
+    <a-box color="lightgreen"  position="-653.385  6.5 -12.032" rotation="0 0 0" radius="2" depth="1.5" height="16" width="90" static-body></a-box>
+    <a-box color="lightgreen"  position="-653.385  6.5 69.262" rotation="0 0 0" radius="2" depth="1.5" height="16" width="90" static-body></a-box>
+
+    <a-image src="#my-image69"  position="-624.846 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+    <a-image src="#my-image69"  position="-632.846 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+
+    <a-image src="#my-image69"  position="-662.74 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+    <a-image src="#my-image69"  position="-670.74 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+    <a-image src="#my-image69"  position="-678.74 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+    <a-image src="#my-image69"  position="-686.74 8.61 -11.177" rotation="0 0 0" height="9" width="7" static-body></a-image>
+    <a-box color="lightgreen"  position="-624.28  6.5 9.873" rotation="0 0 0" radius="2" depth="1.5" height="16" width="30" static-body></a-box>
+    <a-box color="lightgreen"  position="-664.20  6.5 9.873" rotation="0 0 0" radius="2" depth="1.5" height="16" width="30" static-body></a-box>
+    <a-box color="lightgreen"  position="-697.03  6.5 33.647" rotation="0 90 0" radius="2" depth="1.5" height="16" width="90" static-body></a-box>
+    <a-box color="lightgreen"  position="-613.56  6.5 40.026" rotation="0 90 0" radius="2" depth="1.5" height="16" width="60" static-body></a-box>
+    <a-box color="lightgreen"  position="-661.62  6.5 40.026" rotation="0 90 0" radius="2" depth="1.5" height="16" width="60" static-body></a-box>
+
+    <a-box color="lightgreen"  position="-625.72 6.5 55.5" rotation="0 90 0" radius="2" depth="1.5" height="16" width="30" static-body></a-box>
+    <a-box color="lightgreen"  position="-637.72 6.5 55.5" rotation="0 90 0" radius="2" depth="1.5" height="16" width="30" static-body></a-box>
+    <a-box color="lightgreen"  position="-649.72 6.5 55.5" rotation="0 90 0" radius="2" depth="1.5" height="16" width="30" static-body></a-box>
+
+    <a-box color="lightgreen"  position="-687.39  6.5 58.489" rotation="0 0 0" radius="2" depth="1.5" height="16" width="20" static-body></a-box>
+    <a-box color="lightgreen"  position="-687.39  6.5 48.489" rotation="0 0 0" radius="2" depth="1.5" height="16" width="20" static-body></a-box>
+    <a-box color="lightgreen"  position="-687.39  6.5 38.489" rotation="0 0 0" radius="2" depth="1.5" height="16" width="20" static-body></a-box>
+    <a-box color="lightgreen"  position="-687.39  6.5 28.489" rotation="0 0 0" radius="2" depth="1.5" height="16" width="20" static-body></a-box>
+
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-688.378 -0.672 33.849" rotation="0 90 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-688.378 -0.672 43.849" rotation="0 90 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-688.378 -0.672 53.849" rotation="0 90 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-688.378 -0.672 63.849" rotation="0 90 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-656.29 -0.672 63.275" rotation="0 180 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-644.29 -0.672 63.275" rotation="0 180 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-632.29 -0.672 63.275" rotation="0 180 0" static-body></a-obj-model>
+    <a-obj-model src="#object17" scale="0.1 0.1 0.1" position="-620.29 -0.672 63.275" rotation="0 180 0" static-body></a-obj-model>
+
+    <a-obj-model color="white" scale="0.01 0.01 0.01" position="-676.946 3.491 10.706" rotation="0 0 0" src="assets/urinal.obj"></a-obj-model>
+    <a-obj-model color="white" scale="0.01 0.01 0.01" position="-672.943 3.491 10.706" rotation="0 0 0" src="assets/urinal.obj"></a-obj-model>
+    <a-obj-model color="white" scale="0.01 0.01 0.01" position="-662.418 3.491 15.896" rotation="0 270 0" src="assets/urinal.obj"></a-obj-model>
+    <a-obj-model color="white" scale="0.01 0.01 0.01" position="-662.418 3.491 21.121" rotation="0 270 0" src="assets/urinal.obj"></a-obj-model>
+
+    <a-obj-model color="silver" scale="0.01 0.01 0.01" position="-608.808 7 -0.670" rotation="-90 -90 0" src="assets/sink.obj"></a-obj-model>
+    <a-obj-model color="silver" scale="0.01 0.01 0.01" position="-608.808 7 6.011" rotation="-90 -90 0" src="assets/sink.obj"></a-obj-model>
+
+    <a-box src="img/dvere4.jpg" position="-650.81 6.482 45.1" rotation="0 85 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-638.81 6.482 45.1" rotation="0 85 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-626.81 6.482 45.1" rotation="0 85 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-614.81 6.482 45.1" rotation="0 85 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-681.532 6.482 37.429" rotation="0 175 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-681.532 6.482 47.429" rotation="0 175 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-681.532 6.482 57.429" rotation="0 175 0" radius="2" height="16" width="8" static-body></a-box>
+    <a-box src="img/dvere4.jpg" position="-681.532 6.482 67.429" rotation="0 175 0" radius="2" height="16" width="8" static-body></a-box>
+
+
+    <a-image src="#my-image60"  position="-602.821 7.552 -25.822" rotation="0 180 0" radius="2" height="14" width="11" static-body></a-image>
+    <a-image src="#my-image61"  position="-597.218 6.5 9.204" rotation="0 270 0" radius="2" height="16" width="72" static-body></a-image>
+    <a-image src="#my-image62"  position="-592.291 7.119 45" rotation="0 180 0" radius="2" height="16" width="10" static-body></a-image>
+    <a-image src="#my-image63"  position="-587.347 6.5 9.204" rotation="0 270 0" radius="2" height="16" width="72" static-body></a-image>
+    <a-image src="#my-image64"  position="-582.188 7.119 -25.822" rotation="0 180 0" radius="2" height="14" width="11" static-body></a-image>
+    <a-image src="#my-image65"  position="-576.767 6.5 -12.143" rotation="0 270 0" radius="2" height="16" width="28" static-body></a-image>
+
+    <a-box color="grey"  position="-576.44 6.5 21.973" rotation="0 90 0" radius="2" depth="1.5" height="16" width="42" static-body></a-box>
+    <a-box color="grey"  position="-524.718 6.5 42.177" rotation="0 0 0" radius="2" depth="1.5" height="16" width="102" static-body></a-box>
+
 
     <a-image src="#my-image66"  position="-56.9 5.3 26.98" rotation="0 90 0" radius="2" height="16" width="20" static-body></a-image>
     <a-image src="#my-image67"  position="-52.211 7 16.1" rotation="0 0 0" height="12" width="8" static-body></a-image>
