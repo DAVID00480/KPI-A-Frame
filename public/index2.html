@@ -16,7 +16,16 @@
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-<a-scene>
+<a-scene networked-scene="
+  serverURL: /;
+  app: myApp;
+  room: room1;
+  connectOnLoad: true;
+  onConnect: onConnect;
+  adapter: socketio;
+  audio: false;
+  debug: true;
+">
 
 
     <a-sky color="#2539C0"></a-sky>
@@ -33,9 +42,65 @@
              color="#485053"></a-plane>
 <a-assets>
     <img id="my-image83" src="index2.html" alt="my-image">
-    <img id="my-image84" src="img/paternoster1.jpg" alt="my-image">
+    <img id="my-image84" src="img/floor.jpg" alt="my-image">
+    <img id="my-image85" src="img/lirkis.jpg" alt="my-image">
+    <img id="my-image86" src="img/kpi-fei-tuke.jpg" alt="my-image">
+
+
 </a-assets>
-<!--    <a-link href="index2.html" position="-44.294 7 -128.42" scale="0.3 0.3 0.3" image="#my-image83"  material="" link=""></a-link>-->
+
+    <a-assets>
+
+        <!-- Avatar -->
+        <template id="avatar-template">
+            <a-entity class="avatar">
+                <a-sphere class="head"
+                          color="#000"
+                          position="0 6 0"
+                          scale="1 1 1"
+                          random-color
+                ></a-sphere>
+                <a-entity class="face"
+                          position="0 6 0"
+                >
+                    <a-sphere class="eye"
+                              color="#7f7f7f"
+                              position="-0.004 0.204 -0.618"
+                              scale="0.7 0.4 0.4"
+                    >
+                        <a-sphere class="pupil"
+                                  color="#54e7eb"
+                                  position="0 0.195 -0.816"
+                                  scale="0.7 0.2 0.2"
+                        ></a-sphere>
+                    </a-sphere>
+                    <a-cone class="body"
+                            color="#000"
+                            position="0 -3 -0.235"
+                            rotation="0 0 0"
+                            scale="1 -3.711 1">
+                    </a-cone>
+                </a-entity>
+            </a-entity>
+        </template>
+
+    </a-assets>
+
+    <!--    <a-link href="index3.html" position="-6.5 7 -81.046" rotation="0 90 0" image="#my-image84" geometry="" material="" link="on: no; visualAspectEnabled:  true;  href:  index3.html;  backgroundColor:  #00ffff;  borderColor:  #000000;  highlightedColor:  #24ff2f;  titleColor:  #ff0000" title="Prizemie"></a-link>-->
+    <a-text position="-3.194 9.576 -70.046" rotation="0 49.810 0" value="LIRKIS" text="width: 30; color: #d02609; height: 20" rotation="0 180 0"></a-text>
+
+    <a-link href="index3.html" position="-6.5 7 -81.046" rotation="-0.4648796288105199 8.94692683067802 -1.2424450684234046e-17" image="#my-image85" geometry="primitive: circle; segments: 64" material="shader: portal; side: double; pano: http://localhost:63342/aframe/kpi-aframe/public/img/paternoster1.jpg; backgroundColor: #00ffff; strokeColor: #000000" link="title: LIRKIS; on: no; backgroundColor: #00ffff; borderColor: #000000; highlightedColor: #24ff2f; titleColor: #ff0000" title="Prizemie"><a-entity text="color: #ff0000; align: center; font: kelsonsans; value: LIRKIS; width: 4" position="0 1.5 0" visible="false"></a-entity><a-entity geometry="primitive: sphere; segmentsWidth: 64; segmentsHeight: 64; phiLength: 180; thetaLength: 360" material="shader: portal; borderEnabled: 0; pano: [object HTMLImageElement]; side: back" rotation="0 180 0" position="" visible="false"></a-entity><a-entity geometry="primitive: sphere; radius: 10; segmentsWidth: 64; segmentsHeight: 64" material="shader: portal; borderEnabled: 0; pano: [object HTMLImageElement]; side: back" visible="false"></a-entity></a-link>
+    <a-link href="index3.html" visible="false" scale="0.3 0.3 0.3" position="-3.567 7 -81.046" rotation="0 90 0" image="" geometry="" material="" link=""></a-link>
+
+    <a-text position="4.869 9.576 1.148" rotation="0 139.810 0" value="KPI FEI TUKE" text="width: 30; color: #d02609; height: 20" rotation="0 180 0"></a-text>
+
+    <!--    <a-link href="index2.html" title="KPI FEI TUKE" visible="true" scale="1 1 1" position="-5.924 7 20.480" rotation="0 90 0" image="" geometry="" material="" link=""></a-link>-->
+    <a-link href="index.html" scale="2 2 2" position="-5.924 7 20.480" rotation="0 90 0" image="#my-image86" geometry="" material="" link="on: click; visualAspectEnabled:  true;  href:  index.html;  backgroundColor:  #00ffff;  borderColor:  #000000;  highlightedColor:  #24ff2f;  titleColor:  black" title="KPI FEI TUKE"></a-link>
+
+
+    <!--    <a-link href="index3.html" position="31.734 7 -68.623" rotation="-0.4648796288105199 8.94692683067802 -1.2424450684234046e-17" image="#my-image84" geometry="primitive: circle; segments: 64" material="shader: portal; side: double; pano: http://localhost:63342/aframe/kpi-aframe/public/img/paternoster1.jpg; backgroundColor: #00ffff; strokeColor: #000000" link="title: LIRKIS; on: no; backgroundColor: #00ffff; borderColor: #000000; highlightedColor: #24ff2f; titleColor: #ff0000" title="Prizemie"><a-entity text="color: #ff0000; align: center; font: kelsonsans; value: LIRKIS; width: 4" position="0 1.5 0" visible="false"></a-entity><a-entity geometry="primitive: sphere; segmentsWidth: 64; segmentsHeight: 64; phiLength: 180; thetaLength: 360" material="shader: portal; borderEnabled: 0; pano: [object HTMLImageElement]; side: back" rotation="0 180 0" position="" visible="false"></a-entity><a-entity geometry="primitive: sphere; radius: 10; segmentsWidth: 64; segmentsHeight: 64" material="shader: portal; borderEnabled: 0; pano: [object HTMLImageElement]; side: back" visible="false"></a-entity></a-link>-->
+<!--    <a-link href="index3.html" visible="false" scale="0.3 0.3 0.3" position="31.734 7 -67.899" rotation="0 90 0" image="" geometry="" material="" link=""></a-link>-->
+    <!--    <a-link href="index2.html" position="-44.294 7 -128.42" scale="0.3 0.3 0.3" image="#my-image83"  material="" link=""></a-link>-->
 <!--    <a-link href="index2.html" scale="1.375 2.045 0.057" position="-23.208 6.080 81.046" rotation="0 90 0" title="Prizemie" geometry="" material="" image="#my-image84" link="visualAspectEnabled:  true;  href:  index2.html;  title:  Prizemie;  backgroundColor:  #00ffff;  borderColor:  #000000;  highlightedColor:  #24ff2f;  titleColor:  #ff0000"></a-link>-->
     <a-image position="-7.019 9.883 0" src="img/prizemie1.jpg" material="" geometry="height: 20; width: 70" rotation="0 90 0" static-body></a-image>
     <a-image position="-7.019 9.883 -70.010" src="img/prizemie2.jpg" material="" geometry="height: 20; width: 70" rotation="0 90 0" static-body></a-image>
