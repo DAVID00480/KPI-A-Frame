@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     };
 
+    const emitMediaEvent = (eventType, listeners) => {
+        listeners.forEach((listener) => {
+            const el = document.querySelector(listener);
+            el.components.sound[eventType]();
+        })
+    };
+
+    const activateSoundsForTouch = () => {
+        const sounds = document.querySelectorAll('a-sound')
+        sounds.forEach((soundEl) => {
+            soundEl.components.sound.playSound();
+            soundEl.components.sound.stopSound();
+        })
+    };
 
     scene.addEventListener('loaded', function (e) {
         setTimeout(() => {
