@@ -3087,9 +3087,11 @@ Lab. Internet of Things" position="-245.872 7 42.950" rotation="0 0 0" color="bl
 
     <!--  https://www.npmjs.com/package/aframe-crawling-cursor  -->
     <!--    Player   -->
-    <a-entity id="player" position="0 7 0" networked="template:#avatar-template;attachTemplateToLocal:false;" kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls daydream-controls >
+    <a-entity id="player" position="0 7 0" networked="template:#avatar-template;attachTemplateToLocal:false;"
+
+              kinematic-body="radius: 0.8" movement-controls="fly: false "  look-controls daydream-controls >
         <a-entity camera="twoway-motion: speed: 35" position="0 7.5 0" >
-            <a-text id="score" text="value: Cubes: 0 of 4" position="0 2 -2.5"></a-text>
+            <a-text id="score" text="value: Objects: 0 of 4" position="0 2 -2.5"></a-text>
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.2; radiusOuter: 0.3;"
                       material="color: cyan; shader: flat"
